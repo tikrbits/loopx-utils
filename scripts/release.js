@@ -81,19 +81,20 @@ const release = async () => {
     currentVersion,
   });
 
-  return Promise.resolve()
-    .then(cleanBuildPath)
-    .then(() => updateVersionInPkg(newVersion))
-    .then(buildWithSpinner)
-    .then(copyDeclarationFilesWithSpinner)
-    .then(copyRelationalFilesWithSpinner)
-    .then(() => publishWithSpinner(npmTag))
-    .then(cleanBuildPath)
-    .then(() => console.log(chalk.blue('Package was published!')))
-    .catch(err => {
-      console.error(chalk.red(err));
-      process.exit(1);
-    });
+  try {
+    await cleanBuildPath();
+    await updateVersionInPkg(newVersion);
+    await buildWithSpinner();
+    await copyDeclarationFilesWithSpinner();
+    await copyRelationalFilesWithSpinner();
+    await publishWithSpinner(npmTag);
+    await cleanBuildPath();
+
+    console.log(chalk.blue('Package was published!'));
+  } catch (e) {
+    console.error(chalk.red(e));
+    process.exit(1);
+  }
 };
 
-release();
+(async () => release())();

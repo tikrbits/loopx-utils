@@ -3,67 +3,69 @@ const ASTNodeContainer = require('esdoc/out/src/Util/ASTNodeContainer.js').defau
 
 class EsdocCurry {
 
-    getCurryN(node) {
-        if (node.params) {
-            return node.params.filter(x => x.type === 'Identifier').length;
-        }
+  getCurryN(node) {
+    if (node.params) {
+      return node.params.filter(x => x.type === 'Identifier').length;
+    }
+  }
+
+  findDeclaration(name, ast) {
+    if (!name) {
+      return null;
     }
 
-    findDeclaration(name, ast) {
-        if (!name) { return null; }
+    for (const node of ast.program.body) {
+      if (node.type === 'FunctionDeclaration' && node.id.name === name) {
+        return node;
+      }
 
-        for (const node of ast.program.body) {
-            if (node.type === 'FunctionDeclaration' && node.id.name === name) {
-                return node;
-            }
-
-            if (node.type === 'VariableDeclaration' && node.declarations[0].id.name === name) {
-                return node.declarations[0].init;
-            }
-        }
-
-        return null;
+      if (node.type === 'VariableDeclaration' && node.declarations[0].id.name === name) {
+        return node.declarations[0].init;
+      }
     }
 
-    onHandleAST(ev) {
-        const ast = ev.data.ast;
+    return null;
+  }
 
-        for (const decl of ast.program.body) {
-            if (decl.type === 'ExportDefaultDeclaration') {
-                const inner = decl.declaration;
+  onHandleAST(ev) {
+    const ast = ev.data.ast;
 
-                if (inner.type === 'CallExpression'
-                    && (inner.callee.name === 'curry' || inner.callee.name === 'curryN')) {
-                    const args = inner.arguments;
+    for (const decl of ast.program.body) {
+      if (decl.type === 'ExportDefaultDeclaration') {
+        const inner = decl.declaration;
 
-                    decl.declaration = args[args.length - 1];
+        if (inner.type === 'CallExpression'
+          && (inner.callee.name === 'curry' || inner.callee.name === 'curryN')) {
+          const args = inner.arguments;
 
-                    if (decl.declaration.type === 'Identifier') {
-                        decl.declaration = this.findDeclaration(decl.declaration.name, ast);
-                    }
+          decl.declaration = args[args.length - 1];
 
-                    if (args[0].type === 'NumericLiteral') {
-                        decl.declaration._curryN = args[0].value;
-                    } else {
-                        decl.declaration._curryN = this.getCurryN(decl.declaration);
-                    }
-                }
-            }
+          if (decl.declaration.type === 'Identifier') {
+            decl.declaration = this.findDeclaration(decl.declaration.name, ast);
+          }
+
+          if (args[0].type === 'NumericLiteral') {
+            decl.declaration._curryN = args[0].value;
+          } else {
+            decl.declaration._curryN = this.getCurryN(decl.declaration);
+          }
         }
+      }
     }
+  }
 
-    onHandleDocs(ev) {
-        for (const doc of ev.data.docs) {
-            if (doc.kind === 'function') {
-                const node = ASTNodeContainer.getNode(doc.__docId__);
+  onHandleDocs(ev) {
+    for (const doc of ev.data.docs) {
+      if (doc.kind === 'function') {
+        const node = ASTNodeContainer.getNode(doc.__docId__);
 
-                if (node._curryN) {
-                    doc.export = true;
-                    doc.description = `*Autocurry for ${node._curryN} arguments*<br><br>${doc.description}`;
-                }
-            }
+        if (node._curryN) {
+          doc.export = true;
+          doc.description = `*Autocurry for ${node._curryN} arguments*<br><br>${doc.description}`;
         }
+      }
     }
+  }
 }
 
 module.exports = new EsdocCurry();

@@ -2,12 +2,14 @@ import curryN from '../function/curryN';
 import { Prop } from '../typings/types';
 
 interface Assoc {
-    <K extends Prop, V, O>(prop: K, val: V, obj: O): O & { [k in K]: V };
-    <K extends Prop, V>(prop: K, val: V): <O>(obj: O) => O & { [k in K]: V };
-    <K extends Prop>(prop: K): {
-        <V, O>(val: V, obj: O): O & { [k in K]: V };
-        <V>(val: V): <O>(obj: O) => O & { [k in K]: V };
-    };
+  <K extends Prop, V, O>(prop: K, val: V, obj: O): O & { [k in K]: V };
+
+  <K extends Prop, V>(prop: K, val: V): <O>(obj: O) => O & { [k in K]: V };
+
+  <K extends Prop>(prop: K): {
+    <V, O>(val: V, obj: O): O & { [k in K]: V };
+    <V>(val: V): <O>(obj: O) => O & { [k in K]: V };
+  };
 }
 
 /**
@@ -25,6 +27,6 @@ interface Assoc {
  *      assoc('c', 3, {a: 1, b: 2}); //=> {a: 1, b: 2, c: 3}
  */
 export default curryN(3, <K extends Prop, V, O>(prop: K, val: V, obj: O = {} as any) => ({
-    ...obj,
-    [prop]: val,
+  ...obj,
+  [prop]: val,
 })) as Assoc;

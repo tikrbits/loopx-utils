@@ -1,7 +1,7 @@
 import objectKeys from './keys';
 
 interface Values {
-    <O>(obj: O): Array<O[keyof O]>;
+  <O>(obj: O): Array<O[keyof O]>;
 }
 
 /**
@@ -16,13 +16,13 @@ interface Values {
  *      values({a: 1, b: 2, c: 3}); //=> [1, 2, 3]
  */
 export default ((obj) => {
-    const keys = objectKeys(obj);
-    const len = keys.length;
-    const values = new Array(len);
+  const keys = objectKeys(obj);
+  const len = keys.length;
+  const values = new Array(len);
 
-    for (let i = 0; i < len; i++) {
-        values[i] = obj[keys[i]];
-    }
+  for (let i = 0; i < len; i++) {
+    values[i] = obj[keys[i]];
+  }
 
-    return values;
+  return values;
 }) as Values;

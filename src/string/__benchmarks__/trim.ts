@@ -5,13 +5,13 @@ import trim from '../trim';
 const testStr = '           fawfawfsafgregr      ';
 
 export default {
-    ramda: () => {
-        trimRamda(testStr);
-    },
-    lodash: () => {
-        trimLodash(testStr);
-    },
-    utils: () => {
-        trim(testStr);
-    },
+  ramda: () => {
+    trimRamda(testStr);
+  },
+  lodash: () => {
+    trimLodash(testStr);
+  },
+  utils: () => {
+    trim(testStr);
+  },
 };

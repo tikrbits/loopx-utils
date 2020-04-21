@@ -22,28 +22,28 @@ import isObject from './object';
  * isPlainObject(<span></span>); // => false
  */
 export default function isPlainObject(test): test is Record<any, any> {
-    if (!isObject(test)) {
-        return false;
-    }
+  if (!isObject(test)) {
+    return false;
+  }
 
-    const prototype = Object.getPrototypeOf(test);
+  const prototype = Object.getPrototypeOf(test);
 
-    if (prototype === null) {
-        // objects created with Object.create(null) are still plain objects
-        return true;
-    }
-
-    if (prototype !== Object.prototype) {
-        // has a custom prototype, probably was created with a custom constructor,
-        // may contain internal data that's not meant to be accessed from outside
-        return false;
-    }
-
-    if (isReactElement(test) || isReactComponent(test)) {
-        // react elements _are_ plain objects, but we don't treat them like that
-        // (e.g. in recursive merges)
-        return false;
-    }
-
+  if (prototype === null) {
+    // objects created with Object.create(null) are still plain objects
     return true;
+  }
+
+  if (prototype !== Object.prototype) {
+    // has a custom prototype, probably was created with a custom constructor,
+    // may contain internal data that's not meant to be accessed from outside
+    return false;
+  }
+
+  if (isReactElement(test) || isReactComponent(test)) {
+    // react elements _are_ plain objects, but we don't treat them like that
+    // (e.g. in recursive merges)
+    return false;
+  }
+
+  return true;
 }

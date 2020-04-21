@@ -12,16 +12,16 @@
  *      cache.get('a'); // 5
  */
 export default (obj = Object.create(null)) => {
-    return {
-        get(key) {
-            return obj[key];
-        },
-        set(key, value) {
-            obj[key] = value;
-            return this;
-        },
-        has(key) {
-            return key in obj;
-        },
-    };
+  return {
+    get(key) {
+      return obj[key];
+    },
+    set(key, value) {
+      obj[key] = value;
+      return this;
+    },
+    has(key) {
+      return key in obj;
+    },
+  };
 };

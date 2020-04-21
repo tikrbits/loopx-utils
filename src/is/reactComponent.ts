@@ -3,11 +3,12 @@ import has from '../object/has';
 let isComponent: (test: any) => boolean;
 
 try {
-    isComponent = require('react-is').isValidElementType;
-} catch (e) {}
+  isComponent = require('react-is').isValidElementType;
+} catch (e) {
+}
 
 if (!isComponent) {
-    isComponent = (test) => typeof test === 'string' || typeof test === 'function' || (!!test && has('$$typeof', test));
+  isComponent = (test) => typeof test === 'string' || typeof test === 'function' || (!!test && has('$$typeof', test));
 }
 
 /**

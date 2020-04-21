@@ -2,8 +2,9 @@ import curryN from '../function/curryN';
 import { Prop } from '../typings/types';
 
 interface Has {
-    <K extends Prop>(s: K, obj): boolean;
-    <K extends Prop>(s: K): (obj) => boolean;
+  <K extends Prop>(s: K, obj): boolean;
+
+  <K extends Prop>(s: K): (obj) => boolean;
 }
 
 /**
@@ -20,6 +21,6 @@ interface Has {
  *      hasName({});                //=> false
  */
 export default curryN(
-    2,
-    <K extends Prop>(prop: K, obj) => obj != null && Object.prototype.hasOwnProperty.call(obj, prop)
+  2,
+  <K extends Prop>(prop: K, obj) => obj != null && Object.prototype.hasOwnProperty.call(obj, prop),
 ) as Has;

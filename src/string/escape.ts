@@ -1,11 +1,11 @@
 const escapeRegExp = /[&<>"']/g;
 
 const htmlEscapes = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;',
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  '\'': '&#39;',
 };
 const escape = (char) => htmlEscapes[char];
 

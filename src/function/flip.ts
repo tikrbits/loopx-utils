@@ -1,7 +1,7 @@
 import curryN from './curryN';
 
 interface Flip {
-    <T, U, R>(fn: (arg0: T, arg1: U, ...args) => R): (arg1: U, arg0: T, ...args) => R;
+  <T, U, R>(fn: (arg0: T, arg1: U, ...args) => R): (arg1: U, arg0: T, ...args) => R;
 }
 
 /**
@@ -17,10 +17,10 @@ interface Flip {
  *      flip(neg)(3, 5); //=> 2
  */
 export default (<T, U, R>(fn: (a: T, b: U) => R) =>
-    curryN(2, function(a: U, b: T) {
-        const args = Array.prototype.slice.call(arguments);
-        args[0] = b;
-        args[1] = a;
+  curryN(2, function(a: U, b: T) {
+    const args = Array.prototype.slice.call(arguments);
+    args[0] = b;
+    args[1] = a;
 
-        return fn.apply(this, args);
-    })) as Flip;
+    return fn.apply(this, args);
+  })) as Flip;

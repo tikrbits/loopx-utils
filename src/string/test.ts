@@ -1,8 +1,9 @@
 import curryN from '../function/curryN';
 
 interface Test {
-    (regexp: RegExp, str: string): boolean;
-    (regexp: RegExp): (str: string) => boolean;
+  (regexp: RegExp, str: string): boolean;
+
+  (regexp: RegExp): (str: string) => boolean;
 }
 
 /**

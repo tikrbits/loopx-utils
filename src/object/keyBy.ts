@@ -3,10 +3,11 @@ import objectKeys from './keys';
 import { ObjBase, ObjBaseBy, Prop } from '../typings/types';
 
 interface KeyBy {
-    <O, KT extends string>(fn: ObjBaseBy<O, KT>, obj: O): Record<KT, O[keyof O]>;
-    <K extends Prop, V, KT extends string>(fn: ObjBase<K, V, KT>): <O extends Record<K, V>>(
-        obj: O
-    ) => Record<KT, O[keyof O]>;
+  <O, KT extends string>(fn: ObjBaseBy<O, KT>, obj: O): Record<KT, O[keyof O]>;
+
+  <K extends Prop, V, KT extends string>(fn: ObjBase<K, V, KT>): <O extends Record<K, V>>(
+    obj: O,
+  ) => Record<KT, O[keyof O]>;
 }
 
 /**
@@ -23,15 +24,15 @@ interface KeyBy {
  */
 
 export default curryN(2, <O extends Record<any, any>>(fn: ObjBaseBy<O, string>, obj: O = {} as any) => {
-    const result = {};
-    const keys = objectKeys(obj);
+  const result = {};
+  const keys = objectKeys(obj);
 
-    for (let i = 0; i < keys.length; i++) {
-        const key = keys[i];
-        const groupValue = fn(obj[key], key, obj);
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    const groupValue = fn(obj[key], key, obj);
 
-        result[groupValue] = obj[key];
-    }
+    result[groupValue] = obj[key];
+  }
 
-    return result;
+  return result;
 }) as KeyBy;

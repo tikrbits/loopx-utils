@@ -1,7 +1,7 @@
 import { Func } from '../typings/types';
 
 interface Once {
-    <F extends Func>(fn: F): F;
+  <F extends Func>(fn: F): F;
 }
 
 /**
@@ -19,17 +19,17 @@ interface Once {
  *      addOneOnce(addOneOnce(50)); //=> 11
  */
 export default (<F extends Func>(fn: F) => {
-    let called = false;
-    let result;
+  let called = false;
+  let result;
 
-    return (...args) => {
-        if (called) {
-            return result;
-        }
+  return (...args) => {
+    if (called) {
+      return result;
+    }
 
-        result = fn(...args);
-        called = true;
+    result = fn(...args);
+    called = true;
 
-        return result;
-    };
+    return result;
+  };
 }) as Once;

@@ -4,8 +4,9 @@ import map from './map';
 import { Prop } from '../typings/types';
 
 interface Pluck {
-    <P extends Prop, T>(p: P, list: ArrayLike<Record<P, T>>): T[];
-    <P extends Prop>(p: P): <T>(list: ArrayLike<Record<P, T>>) => T[];
+  <P extends Prop, T>(p: P, list: ArrayLike<Record<P, T>>): T[];
+
+  <P extends Prop>(p: P): <T>(list: ArrayLike<Record<P, T>>) => T[];
 }
 
 /**
@@ -21,5 +22,5 @@ interface Pluck {
  */
 
 export default curryN(2, <P extends Prop, T>(key: string, arr: ArrayLike<Record<P, T>> = []) =>
-    map(prop(key), arr)
+  map(prop(key), arr),
 ) as Pluck;

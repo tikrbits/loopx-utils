@@ -3,9 +3,11 @@ import concat from './concat';
 import { Endo1, CurriedFunction2 } from '../typings/types';
 
 interface Adjust {
-    <T>(fn: Endo1<T>, index: number, list: ArrayLike<T>): T[];
-    <T>(fn: Endo1<T>, index: number): (list: ArrayLike<T>) => T[];
-    <T>(fn: Endo1<T>): CurriedFunction2<number, ArrayLike<T>, T[]>;
+  <T>(fn: Endo1<T>, index: number, list: ArrayLike<T>): T[];
+
+  <T>(fn: Endo1<T>, index: number): (list: ArrayLike<T>) => T[];
+
+  <T>(fn: Endo1<T>): CurriedFunction2<number, ArrayLike<T>, T[]>;
 }
 
 /**
@@ -27,14 +29,14 @@ interface Adjust {
  *      adjust(add(10))(1)([1, 2, 3]);     //=> [1, 12, 3]
  */
 export default curryN(3, <T>(fn: Endo1<T>, idx: number, list: ArrayLike<T> = []) => {
-    if (idx >= list.length || idx < -list.length) {
-        return list;
-    }
+  if (idx >= list.length || idx < -list.length) {
+    return list;
+  }
 
-    const start = idx < 0 ? list.length : 0;
-    const index = start + idx;
-    const result = concat(list, []);
+  const start = idx < 0 ? list.length : 0;
+  const index = start + idx;
+  const result = concat(list, []);
 
-    result[index] = fn(list[index]);
-    return result;
+  result[index] = fn(list[index]);
+  return result;
 }) as Adjust;

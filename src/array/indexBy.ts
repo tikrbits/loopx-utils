@@ -3,8 +3,9 @@ import curryN from '../function/curryN';
 type Pred<T> = (v: T, index: number, arr: ArrayLike<T>) => string;
 
 interface IndexBy {
-    <T>(fn: Pred<T>, list: ArrayLike<T>): Record<string, T>;
-    <T>(fn: Pred<T>): (list: ArrayLike<T>) => Record<string, T>;
+  <T>(fn: Pred<T>, list: ArrayLike<T>): Record<string, T>;
+
+  <T>(fn: Pred<T>): (list: ArrayLike<T>) => Record<string, T>;
 }
 
 /**
@@ -23,11 +24,11 @@ interface IndexBy {
  *      //=> {abc: {id: 'abc', title: 'B'}, xyz: {id: 'xyz', title: 'A'}}
  */
 export default curryN(2, <T>(fn: Pred<T>, arr: ArrayLike<T> = []) => {
-    const result = {};
+  const result = {};
 
-    for (let i = 0; i < arr.length; i++) {
-        result[fn(arr[i], i, arr)] = arr[i];
-    }
+  for (let i = 0; i < arr.length; i++) {
+    result[fn(arr[i], i, arr)] = arr[i];
+  }
 
-    return result;
+  return result;
 }) as IndexBy;

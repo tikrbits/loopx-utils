@@ -2,20 +2,23 @@ import curryN from '../function/curryN';
 import isString from '../is/string';
 
 interface Slice {
-    (a: number, b: number, list: string): string;
-    <T>(a: number, b: number, list: ArrayLike<T>): T[];
-    (a: number, b: number): {
-        (list: string): string;
-        <T>(list: ArrayLike<T>): T[];
+  (a: number, b: number, list: string): string;
+
+  <T>(a: number, b: number, list: ArrayLike<T>): T[];
+
+  (a: number, b: number): {
+    (list: string): string;
+    <T>(list: ArrayLike<T>): T[];
+  };
+
+  (a: number): {
+    (b: number, list: string): string;
+    <T>(b: number, list: ArrayLike<T>): T[];
+    (b: number): {
+      (list: string): string;
+      <T>(list: ArrayLike<T>): T[];
     };
-    (a: number): {
-        (b: number, list: string): string;
-        <T>(b: number, list: ArrayLike<T>): T[];
-        (b: number): {
-            (list: string): string;
-            <T>(list: ArrayLike<T>): T[];
-        };
-    };
+  };
 }
 
 /**
@@ -35,5 +38,5 @@ interface Slice {
  */
 
 export default curryN(3, <T>(fromIndex: number, toIndex: number, list: ArrayLike<T> | string = []) =>
-    isString(list) ? list.slice(fromIndex, toIndex) : Array.prototype.slice.call(list, fromIndex, toIndex)
+  isString(list) ? list.slice(fromIndex, toIndex) : Array.prototype.slice.call(list, fromIndex, toIndex),
 ) as Slice;

@@ -2,12 +2,14 @@ import curryN from '../function/curryN';
 import slice from './slice';
 
 interface SplitEvery {
-    (a: number, list: string): string[];
-    <T>(a: number, list: ArrayLike<T>): T[][];
-    (a: number): {
-        (list: string): string[];
-        <T>(list: ArrayLike<T>): T[][];
-    };
+  (a: number, list: string): string[];
+
+  <T>(a: number, list: ArrayLike<T>): T[][];
+
+  (a: number): {
+    (list: string): string[];
+    <T>(list: ArrayLike<T>): T[][];
+  };
 }
 
 /**
@@ -20,11 +22,11 @@ interface SplitEvery {
  *      splitEvery(2, [1, 2, 3, 4, 5]); // => [[1, 2], [3, 4], [5]]
  */
 export default curryN(2, <T>(length: number, arr: ArrayLike<T> = []) => {
-    const result: T[][] = [];
+  const result: T[][] = [];
 
-    for (let i = 0; i < arr.length; i += length) {
-        result.push(slice(i, i + length, arr));
-    }
+  for (let i = 0; i < arr.length; i += length) {
+    result.push(slice(i, i + length, arr));
+  }
 
-    return result;
+  return result;
 }) as SplitEvery;

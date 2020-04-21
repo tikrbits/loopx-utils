@@ -3,20 +3,23 @@ import prop from './prop';
 import { Prop } from '../typings/types';
 
 interface PropOr {
-    <K extends Prop, V, O extends Record<K, any>>(prop: K, value: V, obj: O): O[K];
-    <K extends Prop, V>(prop: K, value: V, obj): V;
-    <K extends Prop, V>(prop: K, value: V): {
-        <O extends Record<K, any>>(obj: O): O[K];
-        (obj): V;
+  <K extends Prop, V, O extends Record<K, any>>(prop: K, value: V, obj: O): O[K];
+
+  <K extends Prop, V>(prop: K, value: V, obj): V;
+
+  <K extends Prop, V>(prop: K, value: V): {
+    <O extends Record<K, any>>(obj: O): O[K];
+    (obj): V;
+  };
+
+  <K extends Prop>(prop: K): {
+    <V, O extends Record<K, any>>(value: V, obj: O): O[K];
+    <V>(value: V): V;
+    <V>(value: V): {
+      <O extends Record<K, any>>(obj: O): O[K];
+      (obj): V;
     };
-    <K extends Prop>(prop: K): {
-        <V, O extends Record<K, any>>(value: V, obj: O): O[K];
-        <V>(value: V): V;
-        <V>(value: V): {
-            <O extends Record<K, any>>(obj: O): O[K];
-            (obj): V;
-        };
-    };
+  };
 }
 
 /**
@@ -39,7 +42,7 @@ interface PropOr {
  *      propOr('favoriteLibrary', 'react')(alice);  //=> 'react'
  */
 export default curryN(3, (propName, value, obj) => {
-    const v = prop(propName, obj);
+  const v = prop(propName, obj);
 
-    return v != null ? v : value;
+  return v != null ? v : value;
 }) as PropOr;

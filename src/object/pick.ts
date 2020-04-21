@@ -4,8 +4,9 @@ import { Prop } from '../typings/types';
 type PickProps<K, O> = Pick<O, Exclude<keyof O, Exclude<keyof O, K>>>;
 
 interface PickFunc {
-    <K extends Prop, O>(names: ReadonlyArray<K>, obj: O): PickProps<K, O>;
-    <K extends Prop>(names: ReadonlyArray<K>): <O>(obj: O) => PickProps<K, O>;
+  <K extends Prop, O>(names: ReadonlyArray<K>, obj: O): PickProps<K, O>;
+
+  <K extends Prop>(names: ReadonlyArray<K>): <O>(obj: O) => PickProps<K, O>;
 }
 
 /**
@@ -21,15 +22,15 @@ interface PickFunc {
  *      pick(['a', 'e', 'f'], {a: 1, b: 2, c: 3, d: 4}); //=> {a: 1}
  */
 export default curryN(2, <K extends Prop>(props: ReadonlyArray<K> = [], obj = {} as any) => {
-    const result = {} as any;
+  const result = {} as any;
 
-    for (let i = 0; i < props.length; i++) {
-        const prop = props[i];
+  for (let i = 0; i < props.length; i++) {
+    const prop = props[i];
 
-        if (prop in obj) {
-            result[prop] = obj[prop];
-        }
+    if (prop in obj) {
+      result[prop] = obj[prop];
     }
+  }
 
-    return result;
+  return result;
 }) as PickFunc;

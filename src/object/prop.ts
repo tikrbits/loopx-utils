@@ -2,12 +2,14 @@ import curryN from '../function/curryN';
 import { Prop } from '../typings/types';
 
 interface PropFunc {
-    <K extends Prop, O extends Record<K, any>>(prop: K, obj: O): O[K];
-    <K extends Prop>(prop: K, obj): undefined;
-    <K extends Prop>(prop: K): {
-        <O extends Record<K, any>>(obj: O): O[K];
-        (obj): undefined;
-    };
+  <K extends Prop, O extends Record<K, any>>(prop: K, obj: O): O[K];
+
+  <K extends Prop>(prop: K, obj): undefined;
+
+  <K extends Prop>(prop: K): {
+    <O extends Record<K, any>>(obj: O): O[K];
+    (obj): undefined;
+  };
 }
 
 /**

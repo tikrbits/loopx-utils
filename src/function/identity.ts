@@ -1,5 +1,5 @@
 interface Identity {
-    <T>(x: T): T;
+  <T>(x: T): T;
 }
 
 /**

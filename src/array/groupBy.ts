@@ -3,8 +3,9 @@ import { ArrPred } from '../typings/types';
 import map from './map';
 
 interface GroupBy {
-    <T>(fns: ArrPred<T>[], list: ArrayLike<T>): T[][];
-    <T>(fns: ArrPred<T>[]): (list: ArrayLike<T>) => T[][];
+  <T>(fns: ArrPred<T>[], list: ArrayLike<T>): T[][];
+
+  <T>(fns: ArrPred<T>[]): (list: ArrayLike<T>) => T[][];
 }
 
 /**
@@ -21,27 +22,27 @@ interface GroupBy {
  * groupBy([isPositive, isZero, isNegative], [0, -3, 2, 'str', 4, -1]);// => [[2,4], [0], [-3, -1], ['str']]
  */
 export default curryN(2, <T>(fns: ArrPred<T>[], arr: ArrayLike<T> = []) => {
-    const n = fns.length;
-    const result = map(() => [], Array(n));
-    const rest = [];
+  const n = fns.length;
+  const result = map(() => [], Array(n));
+  const rest = [];
 
-    for (let arrI = 0; arrI < arr.length; arrI++) {
-        const value = arr[arrI];
-        let fnsI;
+  for (let arrI = 0; arrI < arr.length; arrI++) {
+    const value = arr[arrI];
+    let fnsI;
 
-        for (fnsI = 0; fnsI < n; fnsI++) {
-            if (fns[fnsI](value, arrI, arr)) {
-                result[fnsI].push(value);
-                break;
-            }
-        }
-
-        if (fnsI === n) {
-            rest.push(value);
-        }
+    for (fnsI = 0; fnsI < n; fnsI++) {
+      if (fns[fnsI](value, arrI, arr)) {
+        result[fnsI].push(value);
+        break;
+      }
     }
 
-    result.push(rest);
+    if (fnsI === n) {
+      rest.push(value);
+    }
+  }
 
-    return result;
+  result.push(rest);
+
+  return result;
 }) as GroupBy;

@@ -2,12 +2,14 @@ import { Func } from '../typings/types';
 import curryN from './curryN';
 
 interface IfElse {
-    <T, F>(condition: Func<boolean>, onTrue: Func<T>, onFalse: Func<F>): Func<T | F>;
-    <T>(condition: Func<boolean>, onTrue: Func<T>): <F>(onFalse: Func<F>) => Func<T | F>;
-    (condition: Func<boolean>): {
-        <T, F>(onTrue: Func<T>, onFalse: Func<F>): Func<T | F>;
-        <T>(onTrue: Func<T>): <F>(onFalse: Func<F>) => Func<T | F>;
-    };
+  <T, F>(condition: Func<boolean>, onTrue: Func<T>, onFalse: Func<F>): Func<T | F>;
+
+  <T>(condition: Func<boolean>, onTrue: Func<T>): <F>(onFalse: Func<F>) => Func<T | F>;
+
+  (condition: Func<boolean>): {
+    <T, F>(onTrue: Func<T>, onFalse: Func<F>): Func<T | F>;
+    <T>(onTrue: Func<T>): <F>(onFalse: Func<F>) => Func<T | F>;
+  };
 }
 
 /**
@@ -30,5 +32,5 @@ interface IfElse {
  *      prop({ a: true, b: 1, c: 2 }); //=> 1
  */
 export default curryN(3, (condition, onTrue, onFalse) => (...args) =>
-    condition(...args) ? onTrue(...args) : onFalse(...args)
+  condition(...args) ? onTrue(...args) : onFalse(...args),
 ) as IfElse;

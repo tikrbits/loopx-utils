@@ -2,8 +2,9 @@ import memoizeWith from './with';
 import curryN from '../curryN';
 
 interface DeepSizeLimit {
-    <T extends Function>(maxSize: number, fn: T): T;
-    (maxSize: number): <T extends Function>(fn: T) => T;
+  <T extends Function>(maxSize: number, fn: T): T;
+
+  (maxSize: number): <T extends Function>(fn: T) => T;
 }
 
 /**
@@ -23,18 +24,18 @@ interface DeepSizeLimit {
  *     memoize({test: 2}); // from addFlag call (memory was cleared)
  */
 export default curryN(2, (maxSize: number, fn: Function) =>
-    memoizeWith(() => createSizedCache(maxSize), (...args) => JSON.stringify(args), fn)
+  memoizeWith(() => createSizedCache(maxSize), (...args) => JSON.stringify(args), fn),
 ) as DeepSizeLimit;
 
 function createSizedCache(maxSize: number) {
-    const cache = new Map();
+  const cache = new Map();
 
-    cache.set = (...args) => {
-        // flush cache if size reached the limit
-        if (cache.size >= maxSize) {
-            cache.clear();
-        }
-        return Map.prototype.set.call(cache, ...args);
-    };
-    return cache;
+  cache.set = (...args) => {
+    // flush cache if size reached the limit
+    if (cache.size >= maxSize) {
+      cache.clear();
+    }
+    return Map.prototype.set.call(cache, ...args);
+  };
+  return cache;
 }

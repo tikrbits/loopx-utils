@@ -12,23 +12,23 @@ import isArrayLike from '../is/arrayLike';
  *      //=> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
  */
 const flatten = <T>(arr: ArrayLike<any> = []): T[] => {
-    const result = [];
+  const result = [];
 
-    for (let i = 0; i < arr.length; i++) {
-        const a = arr[i];
+  for (let i = 0; i < arr.length; i++) {
+    const a = arr[i];
 
-        if (isArrayLike(a)) {
-            const nested = flatten(a);
+    if (isArrayLike(a)) {
+      const nested = flatten(a);
 
-            for (let j = 0; j < nested.length; j++) {
-                result.push(nested[j]);
-            }
-        } else {
-            result.push(a);
-        }
+      for (let j = 0; j < nested.length; j++) {
+        result.push(nested[j]);
+      }
+    } else {
+      result.push(a);
     }
+  }
 
-    return result;
+  return result;
 };
 
 export default flatten;

@@ -1,12 +1,14 @@
 import curryN from './curryN';
 
 interface UpdatePropertyValue {
-    <T, R>(propertyName: string, propertyValue: T, obj: R): R & { propertyName: T };
-    <T, R>(propertyName: string, propertyValue: T): (obj: R) => R & { propertyName: T };
-    (propertyName: string): {
-        <T, R>(propertyValue: T, obj: R): R & { propertyName: T };
-        <T>(propertyValue): <R>(obj: R) => R & { propertyName: R };
-    };
+  <T, R>(propertyName: string, propertyValue: T, obj: R): R & { propertyName: T };
+
+  <T, R>(propertyName: string, propertyValue: T): (obj: R) => R & { propertyName: T };
+
+  (propertyName: string): {
+    <T, R>(propertyValue: T, obj: R): R & { propertyName: T };
+    <T>(propertyValue): <R>(obj: R) => R & { propertyName: R };
+  };
 }
 
 /**
@@ -29,10 +31,10 @@ interface UpdatePropertyValue {
  *      fn.name //=> 'newFn'
  */
 export default curryN(2, <T, R>(propertyName: string, propertyValue: T, obj: R) => {
-    const descriptor = Object.getOwnPropertyDescriptor(obj, propertyName);
+  const descriptor = Object.getOwnPropertyDescriptor(obj, propertyName);
 
-    descriptor.value = propertyValue;
-    Object.defineProperty(obj, propertyName, descriptor);
+  descriptor.value = propertyValue;
+  Object.defineProperty(obj, propertyName, descriptor);
 
-    return obj;
+  return obj;
 }) as UpdatePropertyValue;

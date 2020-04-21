@@ -2,8 +2,9 @@ import isArray from '../is/array';
 import isArrayLike from '../is/arrayLike';
 
 interface ToArray {
-    <T>(v: ArrayLike<T>): T[];
-    <T>(v: T): T extends Array<any> ? T : T[];
+  <T>(v: ArrayLike<T>): T[];
+
+  <T>(v: T): T extends Array<any> ? T : T[];
 }
 
 /**
@@ -17,13 +18,13 @@ interface ToArray {
  *      toArray('test') // => ['test']
  */
 export default ((val) => {
-    if (isArray(val)) {
-        return val;
-    }
+  if (isArray(val)) {
+    return val;
+  }
 
-    if (isArrayLike(val)) {
-        return Array.prototype.slice.call(val);
-    }
+  if (isArrayLike(val)) {
+    return Array.prototype.slice.call(val);
+  }
 
-    return [val];
+  return [val];
 }) as ToArray;

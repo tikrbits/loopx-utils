@@ -2,8 +2,9 @@ import curryN from './curryN';
 import { Pred } from '../typings/types';
 
 interface Either {
-    <T>(pred1: Pred<T>, pred2: Pred<T>): Pred<T>;
-    <T>(pred1: Pred<T>): (pred2: Pred<T>) => Pred<T>;
+  <T>(pred1: Pred<T>, pred2: Pred<T>): Pred<T>;
+
+  <T>(pred1: Pred<T>): (pred2: Pred<T>) => Pred<T>;
 }
 
 /**

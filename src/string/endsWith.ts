@@ -1,8 +1,9 @@
 import curryN from '../function/curryN';
 
 interface EndsWith {
-    (postfix: string, str: string): boolean;
-    (postfix: string): (str: string) => boolean;
+  (postfix: string, str: string): boolean;
+
+  (postfix: string): (str: string) => boolean;
 }
 
 /**
@@ -17,6 +18,6 @@ interface EndsWith {
  *      endsWith('b', 'abc')                //=> false
  */
 export default curryN(
-    2,
-    (postfix: string = '', str: string = '') => str.slice(-postfix.length) === postfix
+  2,
+  (postfix: string = '', str: string = '') => str.slice(-postfix.length) === postfix,
 ) as EndsWith;

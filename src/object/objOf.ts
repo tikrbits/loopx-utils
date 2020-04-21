@@ -2,8 +2,9 @@ import curryN from '../function/curryN';
 import { Prop } from '../typings/types';
 
 interface ObjOf {
-    <K extends Prop, V>(key: K, value: V): Record<K, V>;
-    <K extends Prop>(key: K): <V>(value: V) => Record<K, V>;
+  <K extends Prop, V>(key: K, value: V): Record<K, V>;
+
+  <K extends Prop>(key: K): <V>(value: V) => Record<K, V>;
 }
 
 /**

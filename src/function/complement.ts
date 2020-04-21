@@ -1,5 +1,5 @@
 interface Complement {
-    <F extends (...args) => any>(pred: F): (...args: Parameters<F>) => boolean;
+  <F extends (...args) => any>(pred: F): (...args: Parameters<F>) => boolean;
 }
 
 /**

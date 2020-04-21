@@ -1,12 +1,14 @@
 import curryN from './function/curryN';
 
 interface DefaultTo {
-    <T>(a: T, b: null | undefined): T;
-    <T, U>(a: T, b: U): U;
-    <T>(a: T): {
-        (b: null | undefined): T;
-        <U>(b: U): U;
-    };
+  <T>(a: T, b: null | undefined): T;
+
+  <T, U>(a: T, b: U): U;
+
+  <T>(a: T): {
+    (b: null | undefined): T;
+    <U>(b: U): U;
+  };
 }
 
 /**
@@ -26,10 +28,10 @@ interface DefaultTo {
  *      defaultTo42(parseInt('string')); //=> 42
  */
 export default curryN(2, (dflt, x) => {
-    if (x == null || x !== x) {
-        // eslint-disable-line no-self-compare
-        return dflt;
-    }
+  if (x == null || x !== x) {
+    // eslint-disable-line no-self-compare
+    return dflt;
+  }
 
-    return x;
+  return x;
 }) as DefaultTo;

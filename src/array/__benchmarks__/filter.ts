@@ -9,21 +9,21 @@ const fn = (x) => x % 2 !== 0;
 const array = range(101);
 
 export default {
-    ramda: () => {
-        filterRamda(fn, array);
-    },
-    lodash: () => {
-        filterLodash(array, fn);
-    },
-    underscore: () => {
-        _.filter(array, fn);
-    },
-    lazyjs: () => {
-        lazy(array)
-            .filter(fn)
-            .toArray();
-    },
-    utils: () => {
-        filter(fn, array);
-    },
+  ramda: () => {
+    filterRamda(fn, array);
+  },
+  lodash: () => {
+    filterLodash(array, fn);
+  },
+  underscore: () => {
+    _.filter(array, fn);
+  },
+  lazyjs: () => {
+    lazy(array)
+      .filter(fn)
+      .toArray();
+  },
+  utils: () => {
+    filter(fn, array);
+  },
 };

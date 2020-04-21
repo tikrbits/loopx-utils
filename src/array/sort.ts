@@ -2,8 +2,9 @@ import curryN from '../function/curryN';
 import { Ord, CompareFunc } from '../typings/types';
 
 interface Sort {
-    <T, R extends Ord>(fn: CompareFunc<T, R>, list: ArrayLike<T>): T[];
-    <T, R extends Ord>(fn: CompareFunc<T, R>): (list: ArrayLike<T>) => T[];
+  <T, R extends Ord>(fn: CompareFunc<T, R>, list: ArrayLike<T>): T[];
+
+  <T, R extends Ord>(fn: CompareFunc<T, R>): (list: ArrayLike<T>) => T[];
 }
 
 const defaultComparator = (a: number, b: number) => a - b;
@@ -24,7 +25,7 @@ const defaultComparator = (a: number, b: number) => a - b;
  *      sort(diff, [4,2,7,5]); //=> [2, 4, 5, 7]
  */
 export default curryN(2, <T, R>(comparator = defaultComparator, arr: ArrayLike<T> = []) => {
-    const newArray = Array.prototype.slice.call(arr);
+  const newArray = Array.prototype.slice.call(arr);
 
-    return newArray.sort(comparator);
+  return newArray.sort(comparator);
 }) as Sort;

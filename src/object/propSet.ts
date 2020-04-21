@@ -3,12 +3,14 @@ import { Prop, ReplaceType } from '../typings/types';
 import has from './has';
 
 interface PropSet {
-    <K extends Prop, V, O>(prop: K, val: V, obj: O): ReplaceType<O, K, V>;
-    <K extends Prop, V>(prop: K, val: V): <O>(obj: O) => ReplaceType<O, K, V>;
-    <K extends Prop>(prop: K): {
-        <V, O>(val: V, obj: O): ReplaceType<O, K, V>;
-        <V>(val: V): <O>(obj: O) => ReplaceType<O, K, V>;
-    };
+  <K extends Prop, V, O>(prop: K, val: V, obj: O): ReplaceType<O, K, V>;
+
+  <K extends Prop, V>(prop: K, val: V): <O>(obj: O) => ReplaceType<O, K, V>;
+
+  <K extends Prop>(prop: K): {
+    <V, O>(val: V, obj: O): ReplaceType<O, K, V>;
+    <V>(val: V): <O>(obj: O) => ReplaceType<O, K, V>;
+  };
 }
 
 /**
@@ -28,12 +30,12 @@ interface PropSet {
  *      propSet('c', 3, {a: 1, b: 2}); //=> {a: 1, b: 2, c: 3}
  */
 export default curryN(3, <K extends Prop>(prop: K, val, obj = {} as any) => {
-    if (has(prop, obj) && obj[prop] === val) {
-        return obj;
-    }
+  if (has(prop, obj) && obj[prop] === val) {
+    return obj;
+  }
 
-    return {
-        ...obj,
-        [prop]: val,
-    };
+  return {
+    ...obj,
+    [prop]: val,
+  };
 }) as PropSet;

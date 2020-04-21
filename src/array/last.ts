@@ -1,6 +1,7 @@
 interface Last {
-    <T>(list: ArrayLike<T>): T | undefined;
-    (list: string): string;
+  <T>(list: ArrayLike<T>): T | undefined;
+
+  (list: string): string;
 }
 
 /**

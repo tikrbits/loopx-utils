@@ -2,9 +2,11 @@ import curryN from '../function/curryN';
 import { CurriedFunction2, Prop } from '../typings/types';
 
 interface EqProps {
-    <K extends Prop>(prop: K, obj1: Record<any, any>, obj2: Record<any, any>): boolean;
-    <K extends Prop>(prop: K, obj1: Record<any, any>): (obj2: Record<any, any>) => boolean;
-    <K extends Prop>(prop: K): CurriedFunction2<Record<any, any>, Record<any, any>, boolean>;
+  <K extends Prop>(prop: K, obj1: Record<any, any>, obj2: Record<any, any>): boolean;
+
+  <K extends Prop>(prop: K, obj1: Record<any, any>): (obj2: Record<any, any>) => boolean;
+
+  <K extends Prop>(prop: K): CurriedFunction2<Record<any, any>, Record<any, any>, boolean>;
 }
 
 /**
@@ -24,5 +26,5 @@ interface EqProps {
  *      eqProps('c', o1, o2); //=> true
  */
 export default curryN(3, <K extends Prop>(prop: K, obj1: Record<any, any>, obj2: Record<any, any>) => {
-    return obj1 != null && obj2 != null ? obj1[prop] === obj2[prop] : undefined;
+  return obj1 != null && obj2 != null ? obj1[prop] === obj2[prop] : undefined;
 }) as EqProps;

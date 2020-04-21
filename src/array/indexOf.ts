@@ -2,10 +2,13 @@ import curryN from '../function/curryN';
 import isString from '../is/string';
 
 interface IndexOf {
-    (target: string, list: string): number;
-    <T>(target: T, list: ArrayLike<T>): number;
-    (targer: string): (list: string) => number;
-    <T>(target: T): (list: ArrayLike<T>) => number;
+  (target: string, list: string): number;
+
+  <T>(target: T, list: ArrayLike<T>): number;
+
+  (targer: string): (list: string) => number;
+
+  <T>(target: T): (list: ArrayLike<T>) => number;
 }
 
 /**
@@ -22,9 +25,9 @@ interface IndexOf {
  */
 
 export default curryN(2, <T>(target: T | string, xs: ArrayLike<T> | string = []) => {
-    if (isString(xs)) {
-        return xs.indexOf(target as string);
-    }
+  if (isString(xs)) {
+    return xs.indexOf(target as string);
+  }
 
-    return Array.prototype.indexOf.call(xs, target);
+  return Array.prototype.indexOf.call(xs, target);
 }) as IndexOf;

@@ -3,9 +3,11 @@ import prop from './prop';
 import { CurriedFunction2, Prop } from '../typings/types';
 
 interface PropEq {
-    (prop: Prop, value, obj): boolean;
-    (prop: Prop, value): (obj) => boolean;
-    (prop: Prop): CurriedFunction2<any, any, boolean>;
+  (prop: Prop, value, obj): boolean;
+
+  (prop: Prop, value): (obj) => boolean;
+
+  (prop: Prop): CurriedFunction2<any, any, boolean>;
 }
 
 /**

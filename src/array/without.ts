@@ -2,8 +2,9 @@ import curryN from '../function/curryN';
 import difference from './difference';
 
 interface Without {
-    <T>(list1: ArrayLike<T>, list2: ArrayLike<T>): T[];
-    <T>(list1: ArrayLike<T>): (list2: ArrayLike<T>) => T[];
+  <T>(list1: ArrayLike<T>, list2: ArrayLike<T>): T[];
+
+  <T>(list1: ArrayLike<T>): (list2: ArrayLike<T>) => T[];
 }
 
 /**

@@ -4,38 +4,38 @@ import isArray from './array';
 const isEqualNativeTypes = (test1, test2) => test1.toString() === test2.toString();
 
 const isEqualArrays = (test1, test2) => {
-    const len = test1.length;
+  const len = test1.length;
 
-    if (len !== test2.length) {
-        return false;
+  if (len !== test2.length) {
+    return false;
+  }
+
+  for (let i = 0; i < len; i++) {
+    if (!isEqual(test1[i], test2[i])) {
+      return false;
     }
+  }
 
-    for (let i = 0; i < len; i++) {
-        if (!isEqual(test1[i], test2[i])) {
-            return false;
-        }
-    }
-
-    return true;
+  return true;
 };
 
 const isEqualObjects = (test1, test2) => {
-    const keys = Object.keys(test1);
-    const len = keys.length;
+  const keys = Object.keys(test1);
+  const len = keys.length;
 
-    if (len !== Object.keys(test2).length) {
-        return false;
+  if (len !== Object.keys(test2).length) {
+    return false;
+  }
+
+  for (let i = 0; i < len; i++) {
+    const key = keys[i];
+
+    if (!(Object.prototype.hasOwnProperty.call(test2, key) && isEqual(test1[key], test2[key]))) {
+      return false;
     }
+  }
 
-    for (let i = 0; i < len; i++) {
-        const key = keys[i];
-
-        if (!(Object.prototype.hasOwnProperty.call(test2, key) && isEqual(test1[key], test2[key]))) {
-            return false;
-        }
-    }
-
-    return true;
+  return true;
 };
 
 /**
@@ -52,25 +52,25 @@ const isEqualObjects = (test1, test2) => {
  *      isEqual({ a: { b: 1 }}, { a: { b: 1 }}); //=> true
  */
 const isEqual = (test1, test2): boolean => {
-    if (test1 === test2) {
-        return true;
-    }
+  if (test1 === test2) {
+    return true;
+  }
 
-    if (typeof test1 !== typeof test2 || test1 !== Object(test1) || !test1 || !test2) {
-        return false;
-    }
+  if (typeof test1 !== typeof test2 || test1 !== Object(test1) || !test1 || !test2) {
+    return false;
+  }
 
-    if (isArray(test1) && isArray(test2)) {
-        return isEqualArrays(test1, test2);
-    }
+  if (isArray(test1) && isArray(test2)) {
+    return isEqualArrays(test1, test2);
+  }
 
-    const test1ToString = Object.prototype.toString.call(test1);
+  const test1ToString = Object.prototype.toString.call(test1);
 
-    if (test1ToString === '[object Object]' && Object.prototype.toString.call(test2) === test1ToString) {
-        return isEqualObjects(test1, test2);
-    }
+  if (test1ToString === '[object Object]' && Object.prototype.toString.call(test2) === test1ToString) {
+    return isEqualObjects(test1, test2);
+  }
 
-    return isEqualNativeTypes(test1, test2);
+  return isEqualNativeTypes(test1, test2);
 };
 
 export default curry(isEqual);

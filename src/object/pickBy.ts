@@ -2,8 +2,9 @@ import curryN from '../function/curryN';
 import { ObjPred, ObjPredBy } from '../typings/types';
 
 interface PickBy {
-    <O>(pred: ObjPredBy<O>, obj: O): Partial<O>;
-    <K extends string>(pred: ObjPred<K, any>): <O>(obj: O) => Partial<O>;
+  <O>(pred: ObjPredBy<O>, obj: O): Partial<O>;
+
+  <K extends string>(pred: ObjPred<K, any>): <O>(obj: O) => Partial<O>;
 }
 
 /**
@@ -17,13 +18,13 @@ interface PickBy {
  *      pickBy(x => x > 2, {a: 1, b: 2, c: 3, d: 4}); //=> {c: 3, d: 4}
  */
 export default curryN(2, <O>(fn: ObjPredBy<O>, obj: O = {} as any) => {
-    const result: Partial<O> = {};
+  const result: Partial<O> = {};
 
-    for (const prop in obj) {
-        if (fn(obj[prop], prop, obj)) {
-            result[prop] = obj[prop];
-        }
+  for (const prop in obj) {
+    if (fn(obj[prop], prop, obj)) {
+      result[prop] = obj[prop];
     }
+  }
 
-    return result;
+  return result;
 }) as PickBy;

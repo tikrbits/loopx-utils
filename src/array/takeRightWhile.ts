@@ -3,12 +3,14 @@ import slice from './slice';
 import { ArrPred } from '../typings/types';
 
 interface TakeRightWhile {
-    (fn: ArrPred<string>, arr: string): string;
-    <T>(fn: ArrPred<T>, arr: ArrayLike<T>): T[];
-    <T>(fn: ArrPred<T>): {
-        (arr: string): string;
-        (arr: ArrayLike<T>): T[];
-    };
+  (fn: ArrPred<string>, arr: string): string;
+
+  <T>(fn: ArrPred<T>, arr: ArrayLike<T>): T[];
+
+  <T>(fn: ArrPred<T>): {
+    (arr: string): string;
+    (arr: ArrayLike<T>): T[];
+  };
 }
 
 /**
@@ -27,11 +29,11 @@ interface TakeRightWhile {
  *      takeRightWhile(isNotOne, [1, 2, 3, 4]); //=> [2, 3, 4]
  */
 export default curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
-    let i = arr.length - 1;
+  let i = arr.length - 1;
 
-    while (i >= 0 && fn(arr[i], i, arr)) {
-        i -= 1;
-    }
+  while (i >= 0 && fn(arr[i], i, arr)) {
+    i -= 1;
+  }
 
-    return slice(i + 1, arr.length, arr);
+  return slice(i + 1, arr.length, arr);
 }) as TakeRightWhile;

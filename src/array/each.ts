@@ -2,8 +2,9 @@ import curryN from '../function/curryN';
 import { ArrVoid } from '../typings/types';
 
 interface Each {
-    <T>(fn: ArrVoid<T>, arr: ArrayLike<T>): void;
-    <T>(fn: ArrVoid<T>): (arr: ArrayLike<T>) => void;
+  <T>(fn: ArrVoid<T>, arr: ArrayLike<T>): void;
+
+  <T>(fn: ArrVoid<T>): (arr: ArrayLike<T>) => void;
 }
 
 /**
@@ -21,7 +22,7 @@ interface Each {
  *      // logs 8
  */
 export default curryN(2, <T>(fn: ArrVoid<T>, arr: ArrayLike<T> = []) => {
-    for (let i = 0; i < arr.length; i++) {
-        fn(arr[i], i, arr);
-    }
+  for (let i = 0; i < arr.length; i++) {
+    fn(arr[i], i, arr);
+  }
 }) as Each;

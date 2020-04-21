@@ -1,8 +1,9 @@
 import isObject from '../is/object';
 
 interface Keys {
-    <T extends Record<any, any>>(x: T): Array<keyof T & string>;
-    <T>(x: T): string[];
+  <T extends Record<any, any>>(x: T): Array<keyof T & string>;
+
+  <T>(x: T): string[];
 }
 
 /**

@@ -5,18 +5,18 @@ import isReactElement from './is/reactElement';
 import isReactComponent from './is/reactComponent';
 
 interface Clone {
-    <T>(x: T): T;
+  <T>(x: T): T;
 }
 
 const cloneRegExp = (pattern: RegExp) =>
-    new RegExp(
-        pattern.source,
-        (pattern.global ? 'g' : '') +
-            (pattern.ignoreCase ? 'i' : '') +
-            (pattern.multiline ? 'm' : '') +
-            (pattern.sticky ? 'y' : '') +
-            (pattern.unicode ? 'u' : '')
-    );
+  new RegExp(
+    pattern.source,
+    (pattern.global ? 'g' : '') +
+    (pattern.ignoreCase ? 'i' : '') +
+    (pattern.multiline ? 'm' : '') +
+    (pattern.sticky ? 'y' : '') +
+    (pattern.unicode ? 'u' : ''),
+  );
 
 /**
  * Creates a deep copy of the value which may contain (nested) `Array`s and
@@ -32,23 +32,23 @@ const cloneRegExp = (pattern: RegExp) =>
  *      objects[0] === objectsClone[0]; //=> false
  */
 const clone = (x) => {
-    switch (type(x)) {
-        case 'Object':
-            // Skip clone react object
-            if (isReactComponent(x) || isReactElement(x)) {
-                break;
-            } else {
-                return mapObj(clone, x);
-            }
-        case 'Array':
-            return mapArr(clone, x);
-        case 'Date':
-            return new Date(x.valueOf());
-        case 'RegExp':
-            return cloneRegExp(x);
-    }
+  switch (type(x)) {
+    case 'Object':
+      // Skip clone react object
+      if (isReactComponent(x) || isReactElement(x)) {
+        break;
+      } else {
+        return mapObj(clone, x);
+      }
+    case 'Array':
+      return mapArr(clone, x);
+    case 'Date':
+      return new Date(x.valueOf());
+    case 'RegExp':
+      return cloneRegExp(x);
+  }
 
-    return x;
+  return x;
 };
 
 export default clone as Clone;

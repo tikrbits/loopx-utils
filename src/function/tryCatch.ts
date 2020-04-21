@@ -2,7 +2,7 @@ import curryN from './curryN';
 import { Func } from '../typings/types';
 
 interface TryCatch {
-    <T>(tryer: Func<T>, catcher: Func<T>): Func<T>;
+  <T>(tryer: Func<T>, catcher: Func<T>): Func<T>;
 }
 
 /**
@@ -28,12 +28,12 @@ interface TryCatch {
  *      )( someIncompleteData ) // DEFAULT_VALUE (error is logged somewhere)
  */
 export default curryN(2, <T>(tryer: Func<T>, catcher: Func<T>) => {
-    return (...args) => {
-        try {
-            return tryer.apply(this, args);
-        } catch (e) {
-            args.unshift(e);
-            return catcher.apply(this, args);
-        }
-    };
+  return (...args) => {
+    try {
+      return tryer.apply(this, args);
+    } catch (e) {
+      args.unshift(e);
+      return catcher.apply(this, args);
+    }
+  };
 }) as TryCatch;

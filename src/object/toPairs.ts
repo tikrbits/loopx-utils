@@ -2,7 +2,7 @@ import objKeys from './keys';
 import { Prop, KeyValuePairs } from '../typings/types';
 
 interface ToPairs {
-    <K extends Prop, V>(obj: Record<K, V>): KeyValuePairs<K & string, V>;
+  <K extends Prop, V>(obj: Record<K, V>): KeyValuePairs<K & string, V>;
 }
 
 /**
@@ -18,13 +18,13 @@ interface ToPairs {
  *      toPairs({a: 1, b: 2, c: 3}); //=> [['a', 1], ['b', 2], ['c', 3]]
  */
 export default (<K extends Prop, V>(obj: Record<K, V> = {} as any) => {
-    const keys = objKeys(obj);
-    const len = keys.length;
-    const result = new Array(len);
+  const keys = objKeys(obj);
+  const len = keys.length;
+  const result = new Array(len);
 
-    for (let i = 0; i < len; i++) {
-        result[i] = [keys[i], obj[keys[i]]];
-    }
+  for (let i = 0; i < len; i++) {
+    result[i] = [keys[i], obj[keys[i]]];
+  }
 
-    return result;
+  return result;
 }) as ToPairs;

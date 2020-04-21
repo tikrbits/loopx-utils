@@ -2,8 +2,9 @@ import curryN from '../function/curryN';
 import { ObjPred } from '../typings/types';
 
 interface AllObject {
-    <K extends string, V>(fn: ObjPred<K, V>, obj: Record<K, V>): boolean;
-    <K extends string, V>(fn: ObjPred<K, V>): (obj: Record<K, V>) => boolean;
+  <K extends string, V>(fn: ObjPred<K, V>, obj: Record<K, V>): boolean;
+
+  <K extends string, V>(fn: ObjPred<K, V>): (obj: Record<K, V>) => boolean;
 }
 
 /**
@@ -25,10 +26,10 @@ interface AllObject {
  *      all(isBiggerThanZero)({ a: 1, b: 0, c: 1 }); //=> false
  */
 export default curryN(2, <K extends string, V>(fn: ObjPred<K, V>, obj: Record<K, V> = {} as any) => {
-    for (const key in obj) {
-        if (Object.prototype.hasOwnProperty.call(obj, key) && !fn(obj[key], key, obj)) {
-            return false;
-        }
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key) && !fn(obj[key], key, obj)) {
+      return false;
     }
-    return true;
+  }
+  return true;
 }) as AllObject;

@@ -13,9 +13,9 @@
  * toString([1, 2, 3]); => '1,2,3'
  */
 export default (val) => {
-    if (val == null) {
-        return '';
-    }
+  if (val == null) {
+    return '';
+  }
 
-    return `${val}`;
+  return `${val}`;
 };

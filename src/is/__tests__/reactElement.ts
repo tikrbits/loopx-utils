@@ -1,35 +1,36 @@
 describe('utils/is/reactElement', () => {
-    const { createElement, PureComponent } = require('react');
+  const { createElement, PureComponent } = require('react');
 
-    let mockReactIs;
+  let mockReactIs;
 
-    jest.mock('react-is', () => mockReactIs);
+  jest.mock('react-is', () => mockReactIs);
 
-    class Component extends PureComponent { }
+  class Component extends PureComponent {
+  }
 
-    beforeEach(() => {
-        jest.resetModules();
-    });
+  beforeEach(() => {
+    jest.resetModules();
+  });
 
-    it('test', () => {
-        mockReactIs = require.requireActual('react-is');
-        const isReactElement = require('../reactElement').default;
+  it('test', () => {
+    mockReactIs = require.requireActual('react-is');
+    const isReactElement = require('../reactElement').default;
 
-        expect(isReactElement('test')).toBe(false);
-        expect(isReactElement({})).toBe(false);
-        expect(isReactElement(new Component())).toBe(false);
-        expect(isReactElement(createElement('i'))).toBe(true);
-        expect(isReactElement({ $$typeof: Symbol.for('react.element') })).toBe(true);
-    });
+    expect(isReactElement('test')).toBe(false);
+    expect(isReactElement({})).toBe(false);
+    expect(isReactElement(new Component())).toBe(false);
+    expect(isReactElement(createElement('i'))).toBe(true);
+    expect(isReactElement({ $$typeof: Symbol.for('react.element') })).toBe(true);
+  });
 
-    it('test when is-react not defined', () => {
-        mockReactIs = null;
-        const isReactElement = require('../reactElement').default;
+  it('test when is-react not defined', () => {
+    mockReactIs = null;
+    const isReactElement = require('../reactElement').default;
 
-        expect(isReactElement('test')).toBe(false);
-        expect(isReactElement({})).toBe(false);
-        expect(isReactElement(new Component())).toBe(false);
-        expect(isReactElement(createElement('i'))).toBe(true);
-        expect(isReactElement({ $$typeof: Symbol.for('react.element') })).toBe(true);
-    });
+    expect(isReactElement('test')).toBe(false);
+    expect(isReactElement({})).toBe(false);
+    expect(isReactElement(new Component())).toBe(false);
+    expect(isReactElement(createElement('i'))).toBe(true);
+    expect(isReactElement({ $$typeof: Symbol.for('react.element') })).toBe(true);
+  });
 });

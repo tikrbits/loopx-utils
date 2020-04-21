@@ -1,20 +1,21 @@
 {
-    "compilerOptions": {
-        "target": "es2018",
-        "module": "es2015",
-        "outDir": "ts_temp",
-        "lib": [
-            "es2018",
-            "dom"
-        ],
-        "declaration": true
-    },
-    "include": [
-        "src/**/*"
+  "compilerOptions": {
+    "declaration": true,
+    "sourceMap": true,
+    "module": "commonjs",
+    "outDir": "ts_temp",
+    "lib": [
+      "es2018",
+      "dom"
     ],
-    "exclude": [
-        "node_modules",
-        "**/__tests__",
-        "**/__benchmarks__"
-    ]
+    "target": "es2018"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/__tests__",
+    "**/__benchmarks__"
+  ]
 }

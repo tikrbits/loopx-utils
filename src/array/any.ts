@@ -2,8 +2,9 @@ import curryN from '../function/curryN';
 import { ArrPred } from '../typings/types';
 
 interface Any {
-    <T>(fn: ArrPred<T>, list: ArrayLike<T>): boolean;
-    <T>(fn: ArrPred<T>): (list: ArrayLike<T>) => boolean;
+  <T>(fn: ArrPred<T>, list: ArrayLike<T>): boolean;
+
+  <T>(fn: ArrPred<T>): (list: ArrayLike<T>) => boolean;
 }
 
 /**
@@ -22,11 +23,11 @@ interface Any {
  *      any(lessThan2)([1, 2]); //=> true
  */
 export default curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
-    for (let i = 0; i < arr.length; i++) {
-        if (fn(arr[i], i, arr)) {
-            return true;
-        }
+  for (let i = 0; i < arr.length; i++) {
+    if (fn(arr[i], i, arr)) {
+      return true;
     }
+  }
 
-    return false;
+  return false;
 }) as Any;

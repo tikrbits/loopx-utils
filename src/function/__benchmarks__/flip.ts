@@ -8,13 +8,13 @@ const flippedLodash = flipLodash(fn);
 const flipped = flip(fn);
 
 export default {
-    ramda: () => {
-        flippedRamda(1, 2);
-    },
-    lodash: () => {
-        flippedLodash(1, 2);
-    },
-    utils: () => {
-        flipped(1, 2);
-    },
+  ramda: () => {
+    flippedRamda(1, 2);
+  },
+  lodash: () => {
+    flippedLodash(1, 2);
+  },
+  utils: () => {
+    flipped(1, 2);
+  },
 };

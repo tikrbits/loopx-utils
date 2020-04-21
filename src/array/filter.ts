@@ -2,8 +2,9 @@ import curryN from '../function/curryN';
 import { ArrPred } from '../typings/types';
 
 interface Filter {
-    <T>(fn: ArrPred<T>, arr: ArrayLike<T>): T[];
-    <T>(fn: ArrPred<T>): (arr: ArrayLike<T>) => T[];
+  <T>(fn: ArrPred<T>, arr: ArrayLike<T>): T[];
+
+  <T>(fn: ArrPred<T>): (arr: ArrayLike<T>) => T[];
 }
 
 /**
@@ -21,13 +22,13 @@ interface Filter {
  *      filter(isEven, [1, 2, 3, 4]); //=> [2, 4]
  */
 export default curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
-    const result = [];
+  const result = [];
 
-    for (let i = 0; i < arr.length; i++) {
-        if (fn(arr[i], i, arr)) {
-            result.push(arr[i]);
-        }
+  for (let i = 0; i < arr.length; i++) {
+    if (fn(arr[i], i, arr)) {
+      result.push(arr[i]);
     }
+  }
 
-    return result;
+  return result;
 }) as Filter;

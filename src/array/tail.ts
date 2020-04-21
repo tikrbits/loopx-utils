@@ -1,8 +1,9 @@
 import slice from './slice';
 
 interface Tail {
-    (list: string): string;
-    <T>(list: ArrayLike<T>): T[];
+  (list: string): string;
+
+  <T>(list: ArrayLike<T>): T[];
 }
 
 /**

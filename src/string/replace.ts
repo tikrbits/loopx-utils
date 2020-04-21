@@ -2,9 +2,11 @@ import curryN from '../function/curryN';
 import { Pattern, CurriedFunction2 } from '../typings/types';
 
 interface Replace {
-    (pattern: Pattern, replacement: string, str: string): string;
-    (pattern: Pattern, replacement: string): (str: string) => string;
-    (pattern: Pattern): CurriedFunction2<string, string, string>;
+  (pattern: Pattern, replacement: string, str: string): string;
+
+  (pattern: Pattern, replacement: string): (str: string) => string;
+
+  (pattern: Pattern): CurriedFunction2<string, string, string>;
 }
 
 /**
@@ -23,5 +25,5 @@ interface Replace {
  *      replace(/foo/g, 'bar', 'foo foo foo'); //=> 'bar bar bar'
  */
 export default curryN(3, (pattern: Pattern = '', replacement = '', str = '') =>
-    str.replace(pattern, replacement)
+  str.replace(pattern, replacement),
 ) as Replace;

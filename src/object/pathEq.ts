@@ -3,9 +3,11 @@ import path from './path';
 import { Paths, CurriedFunction2 } from '../typings/types';
 
 interface PathEq {
-    (path: Paths, val, obj): boolean;
-    (path: Paths, val): (obj) => boolean;
-    (path: Paths): CurriedFunction2<any, any, boolean>;
+  (path: Paths, val, obj): boolean;
+
+  (path: Paths, val): (obj) => boolean;
+
+  (path: Paths): CurriedFunction2<any, any, boolean>;
 }
 
 /**

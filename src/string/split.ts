@@ -2,8 +2,9 @@ import curryN from '../function/curryN';
 import { Pattern } from '../typings/types';
 
 interface Split {
-    (delim: Pattern, str: string): string[];
-    (delim: Pattern): (str: string) => string[];
+  (delim: Pattern, str: string): string[];
+
+  (delim: Pattern): (str: string) => string[];
 }
 
 /**

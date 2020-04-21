@@ -2,8 +2,9 @@ import curryN from './curryN';
 import { Pred } from '../typings/types';
 
 interface AnyPass {
-    <T>(preds: ArrayLike<Pred<T>>): Pred<T>;
-    <T>(preds: ArrayLike<Pred<T>>, ...args: T[]): boolean;
+  <T>(preds: ArrayLike<Pred<T>>): Pred<T>;
+
+  <T>(preds: ArrayLike<Pred<T>>, ...args: T[]): boolean;
 }
 
 /**
@@ -25,11 +26,11 @@ interface AnyPass {
  *      isBlackCard({rank: 'Q', suit: '♦'}); //=> false
  */
 export default curryN(2, <T>(fns: ArrayLike<Pred<T>>, ...args: T[]) => {
-    for (let i = 0; i < fns.length; i++) {
-        if (fns[i](...args)) {
-            return true;
-        }
+  for (let i = 0; i < fns.length; i++) {
+    if (fns[i](...args)) {
+      return true;
     }
+  }
 
-    return false;
+  return false;
 }) as AnyPass;

@@ -1,14 +1,14 @@
 type Result =
-    | 'Object'
-    | 'Number'
-    | 'Boolean'
-    | 'Date'
-    | 'String'
-    | 'Null'
-    | 'Array'
-    | 'RegExp'
-    | 'Function'
-    | 'Undefined';
+  | 'Object'
+  | 'Number'
+  | 'Boolean'
+  | 'Date'
+  | 'String'
+  | 'Null'
+  | 'Array'
+  | 'RegExp'
+  | 'Function'
+  | 'Undefined';
 /**
  * Gives a single-word string description of the (native) type of a value,
  * returning such answers as 'Object', 'Number', 'Array', or 'Null'. Does not
@@ -28,13 +28,13 @@ type Result =
  *      type(/[A-z]/); //=> "RegExp"
  */
 export default (x): Result => {
-    if (x === null) {
-        return 'Null';
-    }
+  if (x === null) {
+    return 'Null';
+  }
 
-    if (x === undefined) {
-        return 'Undefined';
-    }
+  if (x === undefined) {
+    return 'Undefined';
+  }
 
-    return Object.prototype.toString.call(x).slice(8, -1);
+  return Object.prototype.toString.call(x).slice(8, -1);
 };

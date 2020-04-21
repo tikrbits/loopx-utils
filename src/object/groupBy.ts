@@ -3,10 +3,11 @@ import objectKeys from './keys';
 import { ObjBaseBy, ObjBase } from '../typings/types';
 
 interface GroupBy {
-    <O, KT extends string>(fn: ObjBaseBy<O, KT>, obj: O): Record<KT, O[keyof O][]>;
-    <K extends string, V, KT extends string>(fn: ObjBase<K, V, KT>): <O extends Record<K, V>>(
-        obj: O
-    ) => Record<KT, O[keyof O][]>;
+  <O, KT extends string>(fn: ObjBaseBy<O, KT>, obj: O): Record<KT, O[keyof O][]>;
+
+  <K extends string, V, KT extends string>(fn: ObjBase<K, V, KT>): <O extends Record<K, V>>(
+    obj: O,
+  ) => Record<KT, O[keyof O][]>;
 }
 
 /**
@@ -22,19 +23,19 @@ interface GroupBy {
  * groupBy(x => x, { a: 1, b: 1, c: 3});// => { '1': [1, 1], '3': [3] }
  */
 export default curryN(2, <O extends Record<any, any>>(fn: ObjBaseBy<O, string>, obj: O = {} as any) => {
-    const result = {};
-    const keys = objectKeys(obj);
+  const result = {};
+  const keys = objectKeys(obj);
 
-    for (let i = 0; i < keys.length; i++) {
-        const key = keys[i];
-        const groupValue = fn(obj[key], key, obj);
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    const groupValue = fn(obj[key], key, obj);
 
-        if (!result[groupValue]) {
-            result[groupValue] = [];
-        }
-
-        result[groupValue].push(obj[key]);
+    if (!result[groupValue]) {
+      result[groupValue] = [];
     }
 
-    return result;
+    result[groupValue].push(obj[key]);
+  }
+
+  return result;
 }) as GroupBy;

@@ -2,12 +2,14 @@ import curryN from '../function/curryN';
 import slice from './slice';
 
 interface Take {
-    (n: number, xs: string): string;
-    <T>(n: number, xs: ArrayLike<T>): T[];
-    (n: number): {
-        (xs: string): string;
-        <T>(xs: ArrayLike<T>): T[];
-    };
+  (n: number, xs: string): string;
+
+  <T>(n: number, xs: ArrayLike<T>): T[];
+
+  (n: number): {
+    (xs: string): string;
+    <T>(xs: ArrayLike<T>): T[];
+  };
 }
 
 /**

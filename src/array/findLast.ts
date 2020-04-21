@@ -2,8 +2,9 @@ import curryN from '../function/curryN';
 import { ArrPred } from '../typings/types';
 
 interface FindLast {
-    <T>(fn: ArrPred<T>, list: ArrayLike<T>): T | undefined;
-    <T>(fn: ArrPred<T>): (list: ArrayLike<T>) => T | undefined;
+  <T>(fn: ArrPred<T>, list: ArrayLike<T>): T | undefined;
+
+  <T>(fn: ArrPred<T>): (list: ArrayLike<T>) => T | undefined;
 }
 
 /**
@@ -22,9 +23,9 @@ interface FindLast {
  *      findLast(propEq('a', 4))(xs); //=> undefined
  */
 export default curryN(2, <T>(fn: ArrPred<T>, list: ArrayLike<T>) => {
-    for (let i = list.length - 1; i >= 0; i--) {
-        if (fn(list[i], i, list)) {
-            return list[i];
-        }
+  for (let i = list.length - 1; i >= 0; i--) {
+    if (fn(list[i], i, list)) {
+      return list[i];
     }
+  }
 }) as FindLast;

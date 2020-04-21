@@ -19,16 +19,16 @@ import isObject from './object';
  * isEmpty([1]); // => false
  */
 export default (test): boolean => {
-    switch (true) {
-        case isNil(test):
-            return true;
-        case isString(test):
-            return test === '';
-        case isArray(test):
-            return test.length === 0;
-        case isObject(test):
-            return Object.keys(test).length === 0;
-    }
+  switch (true) {
+    case isNil(test):
+      return true;
+    case isString(test):
+      return test === '';
+    case isArray(test):
+      return test.length === 0;
+    case isObject(test):
+      return Object.keys(test).length === 0;
+  }
 
-    return false;
+  return false;
 };

@@ -2,8 +2,9 @@ import concat from './concat';
 import curryN from '../function/curryN';
 
 interface Append {
-    <U, V>(el: U, list: ArrayLike<V>): (U | V)[];
-    <U>(el: U): <V>(list: ArrayLike<V>) => (U | V)[];
+  <U, V>(el: U, list: ArrayLike<V>): (U | V)[];
+
+  <U>(el: U): <V>(list: ArrayLike<V>) => (U | V)[];
 }
 
 /**

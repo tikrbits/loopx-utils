@@ -26,23 +26,23 @@
  * range(0); // => []
  */
 export default (a: number, b?: number, step?: number) => {
-    if (typeof b !== 'number') {
-        b = a;
-        a = 0;
-    }
+  if (typeof b !== 'number') {
+    b = a;
+    a = 0;
+  }
 
-    if (typeof step !== 'number') {
-        step = a < b ? 1 : -1;
-    }
+  if (typeof step !== 'number') {
+    step = a < b ? 1 : -1;
+  }
 
-    const length = Math.max(Math.ceil((b - a) / (step || 1)), 0);
-    const result = new Array(length);
-    let x = a;
+  const length = Math.max(Math.ceil((b - a) / (step || 1)), 0);
+  const result = new Array(length);
+  let x = a;
 
-    for (let i = 0; i < length; i++) {
-        result[i] = x;
-        x += step;
-    }
+  for (let i = 0; i < length; i++) {
+    result[i] = x;
+    x += step;
+  }
 
-    return result;
+  return result;
 };

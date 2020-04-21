@@ -1,8 +1,9 @@
 import { Pred } from '../typings/types';
 
 interface Cond {
-    <T, F extends (...args) => any>(fns: ArrayLike<[Pred<T>, F]>): (...args: T[]) => ReturnType<F>;
+  <T, F extends (...args) => any>(fns: ArrayLike<[Pred<T>, F]>): (...args: T[]) => ReturnType<F>;
 }
+
 /**
  * Returns a function, `fn`, which encapsulates if/else-if/else logic.
  * `cond` takes a list of [predicate, transform] pairs. All of the arguments
@@ -25,10 +26,10 @@ interface Cond {
  *      fn(100); //=> 'water boils at 100°C'
  */
 export default (<T, F extends Function>(pairs: [Pred<T>, F][]) =>
-    function(...args) {
-        for (let i = 0; i < pairs.length; i++) {
-            if (pairs[i][0].apply(this, args)) {
-                return pairs[i][1].apply(this, args);
-            }
-        }
-    }) as Cond;
+  function(...args) {
+    for (let i = 0; i < pairs.length; i++) {
+      if (pairs[i][0].apply(this, args)) {
+        return pairs[i][1].apply(this, args);
+      }
+    }
+  }) as Cond;

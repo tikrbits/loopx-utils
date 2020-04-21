@@ -3,13 +3,16 @@ import prop from './prop';
 import { Prop, ObjBase } from '../typings/types';
 
 interface PropApply {
-    <K extends Prop, R, O extends Record<K, any>>(prop: K, fn: ObjBase<K, O[K], R>, obj: O): R;
-    <K extends Prop, V, R>(prop: K, fn: ObjBase<K, V, R>, obj): R;
-    <K extends Prop, V, R>(prop: K, fn: ObjBase<K, V, R>): (obj) => R;
-    <K extends Prop>(prop: K): {
-        <V, R>(fn: ObjBase<K, V, R>, obj): R;
-        <V, R>(fn: ObjBase<K, V, R>): (obj) => R;
-    };
+  <K extends Prop, R, O extends Record<K, any>>(prop: K, fn: ObjBase<K, O[K], R>, obj: O): R;
+
+  <K extends Prop, V, R>(prop: K, fn: ObjBase<K, V, R>, obj): R;
+
+  <K extends Prop, V, R>(prop: K, fn: ObjBase<K, V, R>): (obj) => R;
+
+  <K extends Prop>(prop: K): {
+    <V, R>(fn: ObjBase<K, V, R>, obj): R;
+    <V, R>(fn: ObjBase<K, V, R>): (obj) => R;
+  };
 }
 
 /**

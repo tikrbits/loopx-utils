@@ -3,12 +3,14 @@ import curryN from '../function/curryN';
 import always from '../function/always';
 
 interface Update {
-    <T>(index: number, value: T, list: ArrayLike<T>): T[];
-    <T>(index: number, value: T): (list: ArrayLike<T>) => T[];
-    <T>(index: number): {
-        <T>(value: T, list: ArrayLike<T>): T[];
-        <T>(value: T): (list: ArrayLike<T>) => T[];
-    };
+  <T>(index: number, value: T, list: ArrayLike<T>): T[];
+
+  <T>(index: number, value: T): (list: ArrayLike<T>) => T[];
+
+  <T>(index: number): {
+    <T>(value: T, list: ArrayLike<T>): T[];
+    <T>(value: T): (list: ArrayLike<T>) => T[];
+  };
 }
 
 /**

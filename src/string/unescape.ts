@@ -1,11 +1,11 @@
 const unescapeRegExp = /&(?:amp|lt|gt|quot|#39);/g;
 
 const htmlUnescapes = {
-    '&amp;': '&',
-    '&lt;': '<',
-    '&gt;': '>',
-    '&quot;': '"',
-    '&#39;': "'",
+  '&amp;': '&',
+  '&lt;': '<',
+  '&gt;': '>',
+  '&quot;': '"',
+  '&#39;': '\'',
 };
 const unescape = (char) => htmlUnescapes[char];
 

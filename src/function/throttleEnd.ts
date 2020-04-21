@@ -10,31 +10,31 @@ import { Func } from '../typings/types';
  * @param {Function} fn The function to throttle.
  */
 export default curryN(
-    2,
-    <F extends Func>(wait: number, fn: F): ThrottleFunc<F> => {
-        let lastCalled;
-        let lastArgs;
-        let lastThis;
-        let timeout;
+  2,
+  <F extends Func>(wait: number, fn: F): ThrottleFunc<F> => {
+    let lastCalled;
+    let lastArgs;
+    let lastThis;
+    let timeout;
 
-        return function(...args) {
-            const now = Date.now();
-            const diff = lastCalled + wait - now;
+    return function(...args) {
+      const now = Date.now();
+      const diff = lastCalled + wait - now;
 
-            if (diff < 0 && timeout) {
-                clearTimeout(timeout);
-                timeout = null;
-                fn.apply(this, args);
-            } else if (!timeout) {
-                timeout = setTimeout(() => {
-                    fn.apply(lastThis, lastArgs);
-                    timeout = null;
-                }, wait);
-            }
+      if (diff < 0 && timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+        fn.apply(this, args);
+      } else if (!timeout) {
+        timeout = setTimeout(() => {
+          fn.apply(lastThis, lastArgs);
+          timeout = null;
+        }, wait);
+      }
 
-            lastCalled = now;
-            lastArgs = args;
-            lastThis = this;
-        };
-    }
+      lastCalled = now;
+      lastArgs = args;
+      lastThis = this;
+    };
+  },
 ) as Throttle;

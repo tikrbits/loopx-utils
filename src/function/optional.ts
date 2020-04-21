@@ -1,8 +1,9 @@
 import curryN from '../function/curryN';
 
 interface Optional {
-    <T, F>(fn: (x: T) => F, x: T): F | true;
-    <T, F>(fn: (x: T) => F): (x: T) => F | true;
+  <T, F>(fn: (x: T) => F, x: T): F | true;
+
+  <T, F>(fn: (x: T) => F): (x: T) => F | true;
 }
 
 /**

@@ -1,4 +1,5 @@
 import isNumber from './number';
+
 /**
  * Checks if `test` is finite.
  *

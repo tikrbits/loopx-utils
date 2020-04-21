@@ -1,7 +1,9 @@
 interface IsTrue {
-    (val: true | 'true'): true;
-    <T extends boolean>(val: T): T;
-    (val): false;
+  (val: true | 'true'): true;
+
+  <T extends boolean>(val: T): T;
+
+  (val): false;
 }
 
 /**

@@ -1,8 +1,9 @@
 import curryN from '../function/curryN';
 
 interface Repeat {
-    <T>(n: number, a: T): T[];
-    (n: number): <T>(a: T) => T[];
+  <T>(n: number, a: T): T[];
+
+  (n: number): <T>(a: T) => T[];
 }
 
 /**
@@ -20,11 +21,11 @@ interface Repeat {
  *      repeatedObjs[0] === repeatedObjs[1]; //=> true
  */
 export default curryN(2, <T>(n: number = 0, value: T) => {
-    const result: T[] = new Array(n);
+  const result: T[] = new Array(n);
 
-    for (let i = 0; i < n; i++) {
-        result[i] = value;
-    }
+  for (let i = 0; i < n; i++) {
+    result[i] = value;
+  }
 
-    return result;
+  return result;
 }) as Repeat;

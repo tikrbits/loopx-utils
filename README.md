@@ -1,35 +1,37 @@
-# Tinkoff Utils [![Build](https://travis-ci.org/TinkoffCreditSystems/utils.js.svg?branch=master)](https://travis-ci.org/TinkoffCreditSystems/utils.js) [![Coverage Status](https://coveralls.io/repos/github/TinkoffCreditSystems/utils.js/badge.svg?branch=master&t=CdowK8)](https://coveralls.io/github/TinkoffCreditSystems/utils.js?branch=master)
+# Tio Utils [![Build](https://travis-ci.org/tiopkg/utils.svg?branch=master)](https://travis-ci.org/tiopkg/utils) [![Coverage Status](https://coveralls.io/repos/github/tiopkg/utils/badge.svg?branch=master&t=CdowK8)](https://coveralls.io/github/tiopkg/utils?branch=master)
 
 > Fast, small and purely functional utility library
 
+`Tio Utils` is forked from `Tinkoff Utils`
+
 ## Install
 ```
-$ npm install @tinkoff/utils
+$ npm install @tiopkg/utils
 ```
 
 ## Features
 - [Fast](#benchmarks)
 - [Small](#bundle-size)
-- [Fully tested](https://coveralls.io/github/TinkoffCreditSystems/utils.js)
-- [Documented](https://tinkoffcreditsystems.github.io/utils.js)
+- [Fully tested](https://coveralls.io/github/tiopkg/utils)
+- [Documented](https://tinkoffcreditsystems.github.io/utils)
 - Purely functional
 - Modern codebase
 
 ## Structure of the library
-* [`/object`](https://github.com/TinkoffCreditSystems/utils.js/tree/master/src/object) – for objects
-* [`/string`](https://github.com/TinkoffCreditSystems/utils.js/tree/master/src/string) – for strings
-* [`/promise`](https://github.com/TinkoffCreditSystems/utils.js/tree/master/src/promise) – for promises
-* [`/array`](https://github.com/TinkoffCreditSystems/utils.js/tree/master/src/array) – for arrays or array-like objects
-* [`/function`](https://github.com/TinkoffCreditSystems/utils.js/tree/master/src/function) – for functions – composition, currying and so on, also a set of simple functions (noop, T, F)
-* [`/is`](https://github.com/TinkoffCreditSystems/utils.js/tree/master/src/is) – set of type checking methods
-* [`/`](https://github.com/TinkoffCreditSystems/utils.js/tree/master/src) – root contains utilities which don't satisfy any of the above categories or are universal
+* [`/object`](https://github.com/tiopkg/utils/tree/master/src/object) – for objects
+* [`/string`](https://github.com/tiopkg/utils/tree/master/src/string) – for strings
+* [`/promise`](https://github.com/tiopkg/utils/tree/master/src/promise) – for promises
+* [`/array`](https://github.com/tiopkg/utils/tree/master/src/array) – for arrays or array-like objects
+* [`/function`](https://github.com/tiopkg/utils/tree/master/src/function) – for functions – composition, currying and so on, also a set of simple functions (noop, T, F)
+* [`/is`](https://github.com/tiopkg/utils/tree/master/src/is) – set of type checking methods
+* [`/`](https://github.com/tiopkg/utils/tree/master/src) – root contains utilities which don't satisfy any of the above categories or are universal
 
 ## Usage
 ```js
-import pathOr from '@tinkoff/utils/object/pathOr';
-import compose from '@tinkoff/utils/function/compose';
-import toLower from '@tinkoff/utils/string/toLower';
-import map from '@tinkoff/utils/array/map'
+import pathOr from '@tiopkg/utils/object/pathOr';
+import compose from '@tiopkg/utils/function/compose';
+import toLower from '@tiopkg/utils/string/toLower';
+import map from '@tiopkg/utils/array/map'
 
 const toLowerName = compose(
     toLower,
@@ -72,6 +74,6 @@ $ npm run benchmark
 | import ... from 'lodash/...' | 21.8 kb |
 | import R from 'ramda' | 41.3 kb |
 | import ... from 'ramda/src/...' | 10 kb |
-| import ... from '@tinkoff/utils/...' | 2.32 kb |
+| import ... from '@tiopkg/utils/...' | 2.32 kb |
 
-For detailed comparison with specific libraries see [COMPARE.md](https://github.com/TinkoffCreditSystems/utils.js/tree/master/COMPARE.md)
+For detailed comparison with specific libraries see [COMPARE.md](https://github.com/tiopkg/utils/tree/master/COMPARE.md)

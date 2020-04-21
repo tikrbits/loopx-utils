@@ -1,6 +1,6 @@
 {
   "name": "@tiopkg/utils",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "author": "Tinkoff team",
   "scripts": {
     "release": "node scripts/release.js",

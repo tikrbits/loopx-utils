@@ -4,7 +4,7 @@ import empty from '../empty';
 
 const tests = [null, undefined, {}, { a: 1 }, [1, 2, 3], [], '', 'abc'];
 
-export const empty = {
+export default {
   ramda: () => {
     tests.forEach((x) => emptyRamda(x));
   },
@@ -15,5 +15,3 @@ export const empty = {
     tests.forEach((x) => empty(x));
   },
 };
-
-export default empty;

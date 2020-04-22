@@ -18,4 +18,6 @@ interface Split {
  *
  *      split('.', 'a.b.c.xyz.d'); //=> ['a', 'b', 'c', 'xyz', 'd']
  */
-export default curryN(2, (delim: Pattern = '', str: string = '') => str.split(delim)) as Split;
+export const split = curryN(2, (delim: Pattern = '', str: string = '') => str.split(delim)) as Split;
+
+export default split;

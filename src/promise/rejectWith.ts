@@ -23,6 +23,8 @@ interface RejectWith {
  * @example
  *      rejectWith(toLowerCase, 'Error').catch( err => console.error(err) );// => 'error'
  */
-export default curryN(2, <R>(func: Func<R>, ...payload) => {
+export const rejectWith = curryN(2, <R>(func: Func<R>, ...payload) => {
   return Promise.reject(func(...payload));
 }) as RejectWith;
+
+export default rejectWith;

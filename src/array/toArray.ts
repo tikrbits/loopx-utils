@@ -17,7 +17,7 @@ interface ToArray {
  *      toArray(5) // => [5]
  *      toArray('test') // => ['test']
  */
-export default ((val) => {
+export const toArray = ((val) => {
   if (isArray(val)) {
     return val;
   }
@@ -28,3 +28,5 @@ export default ((val) => {
 
   return [val];
 }) as ToArray;
+
+export default toArray;

@@ -7,7 +7,7 @@ const flippedRamda = flipRamda(fn);
 const flippedLodash = flipLodash(fn);
 const flipped = flip(fn);
 
-export default {
+export const flip = {
   ramda: () => {
     flippedRamda(1, 2);
   },
@@ -18,3 +18,5 @@ export default {
     flipped(1, 2);
   },
 };
+
+export default flip;

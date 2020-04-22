@@ -17,7 +17,9 @@ interface StartsWith {
  *      startsWith('a', 'abc')                //=> true
  *      startsWith('b', 'abc')                //=> false
  */
-export default curryN(
+export const startsWith = curryN(
   2,
   (prefix: string = '', str: string = '') => str.slice(0, prefix.length) === prefix,
 ) as StartsWith;
+
+export default startsWith;

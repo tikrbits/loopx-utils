@@ -7,7 +7,7 @@ const htmlUnescapes = {
   '&quot;': '"',
   '&#39;': '\'',
 };
-const unescape = (char) => htmlUnescapes[char];
+const replace = (char) => htmlUnescapes[char];
 
 /**
  * The inverse of `escape`; this method converts the HTML entities
@@ -20,4 +20,6 @@ const unescape = (char) => htmlUnescapes[char];
  *
  * unescape('fred, barney, &amp; pebbles'); // => 'fred, barney, & pebbles'
  */
-export default (str = '') => str.replace(unescapeRegExp, unescape);
+export const unescape = (str = '') => str.replace(unescapeRegExp, replace);
+
+export default unescape;

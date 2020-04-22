@@ -20,7 +20,7 @@ interface FindKey {
  *      findKey(x => x > 3, { a: 2, b: 1 }) // => undefined
  *      findKey(x => x > 3, { a: 4, b: 5 }) // => 'a'
  */
-export default curryN(2, <O extends Record<any, any>>(fn: ObjPred<keyof O, O[keyof O]>, obj: O = {} as any) => {
+export const findKey = curryN(2, <O extends Record<any, any>>(fn: ObjPred<keyof O, O[keyof O]>, obj: O = {} as any) => {
   for (const key in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, key)) {
       if (fn(obj[key], key, obj)) {
@@ -29,3 +29,5 @@ export default curryN(2, <O extends Record<any, any>>(fn: ObjPred<keyof O, O[key
     }
   }
 }) as FindKey;
+
+export default findKey;

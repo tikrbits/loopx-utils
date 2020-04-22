@@ -14,7 +14,7 @@ interface FromPairs {
  *
  *      fromPairs([['a', 1], ['b', 2], ['c', 3]]); //=> {a: 1, b: 2, c: 3}
  */
-export default (<K extends Prop, V>(arr: KeyValuePairs<K, V> = []) => {
+export const fromPairs = (<K extends Prop, V>(arr: KeyValuePairs<K, V> = []) => {
   const result: { [k in K]: V } = {} as any;
 
   for (let i = 0; i < arr.length; i++) {
@@ -23,3 +23,5 @@ export default (<K extends Prop, V>(arr: KeyValuePairs<K, V> = []) => {
 
   return result;
 }) as FromPairs;
+
+export default fromPairs;

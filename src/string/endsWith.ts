@@ -17,7 +17,9 @@ interface EndsWith {
  *      endsWith('c', 'abc')                //=> true
  *      endsWith('b', 'abc')                //=> false
  */
-export default curryN(
+export const endsWith = curryN(
   2,
   (postfix: string = '', str: string = '') => str.slice(-postfix.length) === postfix,
 ) as EndsWith;
+
+export default endsWith;

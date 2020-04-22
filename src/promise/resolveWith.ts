@@ -23,6 +23,8 @@ interface ResolveWith {
  * @example
  *      rejectWith(toLowerCase, 'OK').then( res => console.info(res) );// => 'ok'
  */
-export default curryN(2, <R>(func: Func<R>, ...payload) => {
+export const resolveWith = curryN(2, <R>(func: Func<R>, ...payload) => {
   return Promise.resolve(func(...payload));
 }) as ResolveWith;
+
+export default resolveWith;

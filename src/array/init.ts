@@ -18,4 +18,6 @@ interface Init {
  *      init([1]);        //=> []
  *      init([]);         //=> []
  */
-export default (<T>(arr: ArrayLike<T>) => slice(0, -1, arr)) as Init;
+export const init = (<T>(arr: ArrayLike<T>) => slice(0, -1, arr)) as Init;
+
+export default init;

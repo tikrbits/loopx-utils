@@ -22,4 +22,6 @@ interface Includes {
  *      includes(4, [1, 2, 3]); //=> false
  *      includes('test', 'aaatest'); //=> true
  */
-export default curryN(2, <T>(value: T, arr: ArrayLike<T> = []) => indexOf(value, arr) !== -1) as Includes;
+export const includes = curryN(2, <T>(value: T, arr: ArrayLike<T> = []) => indexOf(value, arr) !== -1) as Includes;
+
+export default includes;

@@ -19,7 +19,7 @@ interface Comparator {
  *      ];
  *      var peopleByIncreasingAge = sort(byAge, people);
  */
-export default (<T>(pred: Pred2<T, T>) => {
+export const comparator = (<T>(pred: Pred2<T, T>) => {
   return (a: T, b: T) => {
     if (pred(a, b)) {
       return -1;
@@ -28,3 +28,5 @@ export default (<T>(pred: Pred2<T, T>) => {
     return pred(b, a) ? 1 : 0;
   };
 }) as Comparator;
+
+export default comparator;

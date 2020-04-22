@@ -40,7 +40,7 @@ interface PathSet {
  *
  *      pathSet(['a', 'b'], 3, {}) // => { a: { b: 3 } }
  */
-export default curryN(3, (paths: Paths = [], value, obj = {}) => {
+export const pathSet = curryN(3, (paths: Paths = [], value, obj = {}) => {
   const n = paths.length - 1;
   const result = assign(obj);
   const key = paths[n];
@@ -67,3 +67,5 @@ export default curryN(3, (paths: Paths = [], value, obj = {}) => {
 
   return result;
 }) as PathSet;
+
+export default pathSet;

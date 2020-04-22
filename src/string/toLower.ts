@@ -7,4 +7,6 @@
  *
  *      toLower('XYZ'); //=> 'xyz'
  */
-export default (str = '') => str.toLowerCase();
+export const toLower = (str = '') => str.toLowerCase();
+
+export default toLower;

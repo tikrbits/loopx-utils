@@ -27,7 +27,7 @@ interface Concat {
  *      concat([4, 5, 6], [1, 2, 3]); //=> [4, 5, 6, 1, 2, 3]
  *      concat([], []); //=> []
  */
-export default curryN(2, <U, V>(a: ArrayLike<U> = [], b: ArrayLike<V> = []) => {
+export const concat = curryN(2, <U, V>(a: ArrayLike<U> = [], b: ArrayLike<V> = []) => {
   if (isArray(a)) {
     return a.concat(b);
   }
@@ -44,3 +44,5 @@ export default curryN(2, <U, V>(a: ArrayLike<U> = [], b: ArrayLike<V> = []) => {
 
   return (a as string) + b;
 }) as Concat;
+
+export default concat;

@@ -105,7 +105,7 @@ interface Compose {
  *
  *      f(3, 4); // -(3^4) + 1
  */
-export default ((...fns) => (...args) => {
+export const compose = ((...fns) => (...args) => {
   const n = fns.length - 1;
   let result = fns[n](...args);
 
@@ -115,3 +115,5 @@ export default ((...fns) => (...args) => {
 
   return result;
 }) as Compose;
+
+export default compose;

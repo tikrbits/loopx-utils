@@ -15,7 +15,7 @@ interface Values {
  *
  *      values({a: 1, b: 2, c: 3}); //=> [1, 2, 3]
  */
-export default ((obj) => {
+export const values = ((obj) => {
   const keys = objectKeys(obj);
   const len = keys.length;
   const values = new Array(len);
@@ -26,3 +26,5 @@ export default ((obj) => {
 
   return values;
 }) as Values;
+
+export default values;

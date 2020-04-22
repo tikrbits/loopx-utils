@@ -9,4 +9,6 @@
  *      var t = always('Tee');
  *      t(); //=> 'Tee'
  */
-export default <T>(x: T) => () => x;
+export const always = <T>(x: T) => () => x;
+
+export default always;

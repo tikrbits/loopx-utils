@@ -8,4 +8,6 @@
  * isNumber(5); // => true
  * isNumber(null); // => false
  */
-export default (test): test is number => typeof test === 'number' || test instanceof Number;
+export const isNumber = (test): test is number => typeof test === 'number' || test instanceof Number;
+
+export default isNumber;

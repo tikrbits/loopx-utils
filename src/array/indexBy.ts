@@ -23,7 +23,7 @@ interface IndexBy {
  *      indexBy(x => x.id, list);
  *      //=> {abc: {id: 'abc', title: 'B'}, xyz: {id: 'xyz', title: 'A'}}
  */
-export default curryN(2, <T>(fn: Pred<T>, arr: ArrayLike<T> = []) => {
+export const indexBy = curryN(2, <T>(fn: Pred<T>, arr: ArrayLike<T> = []) => {
   const result = {};
 
   for (let i = 0; i < arr.length; i++) {
@@ -32,3 +32,5 @@ export default curryN(2, <T>(fn: Pred<T>, arr: ArrayLike<T> = []) => {
 
   return result;
 }) as IndexBy;
+
+export default indexBy;

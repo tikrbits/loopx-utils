@@ -22,4 +22,6 @@ interface Append {
  *      append(['tests'], ['write', 'more']); //=> ['write', 'more', ['tests']]
  */
 
-export default curryN(2, <U, V>(el: U, list: ArrayLike<V>) => concat(list, [el])) as Append;
+export const append = curryN(2, <U, V>(el: U, list: ArrayLike<V>) => concat(list, [el])) as Append;
+
+export default append;

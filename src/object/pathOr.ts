@@ -41,8 +41,10 @@ interface PathOr {
  *      pathOr(['a', 'b'],'N/A', {a: {b: 2}}); //=> 2
  *      pathOr(['a', 'b'], 'N/A', {c: {b: 2}}); //=> "N/A"
  */
-export default curryN(3, (paths: Paths = [], value, obj = {}) => {
+export const pathOr = curryN(3, (paths: Paths = [], value, obj = {}) => {
   const v = path(paths, obj);
 
   return v != null ? v : value;
 }) as PathOr;
+
+export default pathOr;

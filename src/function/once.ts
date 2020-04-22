@@ -18,7 +18,7 @@ interface Once {
  *      addOneOnce(10); //=> 11
  *      addOneOnce(addOneOnce(50)); //=> 11
  */
-export default (<F extends Func>(fn: F) => {
+export const once = (<F extends Func>(fn: F) => {
   let called = false;
   let result;
 
@@ -33,3 +33,5 @@ export default (<F extends Func>(fn: F) => {
     return result;
   };
 }) as Once;
+
+export default once;

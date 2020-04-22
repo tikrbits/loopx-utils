@@ -41,8 +41,10 @@ interface PropOr {
  *      propOr('name', 'Bob')(alice);  //=> 'ALICE'
  *      propOr('favoriteLibrary', 'react')(alice);  //=> 'react'
  */
-export default curryN(3, (propName, value, obj) => {
+export const propOr = curryN(3, (propName, value, obj) => {
   const v = prop(propName, obj);
 
   return v != null ? v : value;
 }) as PropOr;
+
+export default propOr;

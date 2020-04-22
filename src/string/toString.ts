@@ -12,10 +12,12 @@
  *
  * toString([1, 2, 3]); => '1,2,3'
  */
-export default (val) => {
+export const toString = (val) => {
   if (val == null) {
     return '';
   }
 
   return `${val}`;
 };
+
+export default toString;

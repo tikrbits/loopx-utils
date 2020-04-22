@@ -29,7 +29,7 @@ interface ZipWith {
  *      zipWith(f, [1, 2, 3], ['a', 'b', 'c']);
  *      //=> [f(1, 'a'), f(2, 'b'), f(3, 'c')]
  */
-export default curryN(3, <U, V, R>(fn: MapFunc<U, V, R>, a: ArrayLike<U> = [], b: ArrayLike<V> = []) => {
+export const zipWith = curryN(3, <U, V, R>(fn: MapFunc<U, V, R>, a: ArrayLike<U> = [], b: ArrayLike<V> = []) => {
   const len = Math.min(a.length, b.length);
   const result: R[] = new Array(len);
 
@@ -39,3 +39,5 @@ export default curryN(3, <U, V, R>(fn: MapFunc<U, V, R>, a: ArrayLike<U> = [], b
 
   return result;
 }) as ZipWith;
+
+export default zipWith;

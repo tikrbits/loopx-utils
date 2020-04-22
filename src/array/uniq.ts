@@ -12,7 +12,7 @@ interface Uniq {
  *
  *  unique([1,2,1,2,3,4,1,2]) // => [1, 2, 3, 4]
  */
-export default (<T>(arr: ArrayLike<T> = []) => {
+export const uniq = (<T>(arr: ArrayLike<T> = []) => {
   const result: T[] = [];
 
   for (let i = 0; i < arr.length; i++) {
@@ -23,3 +23,5 @@ export default (<T>(arr: ArrayLike<T> = []) => {
 
   return result;
 }) as Uniq;
+
+export default uniq;

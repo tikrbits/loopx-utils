@@ -12,7 +12,7 @@
  *      isStrictEqual(NaN, NaN); //=> true
  *      isStrictEqual(-0, 0); //=> true
  */
-export default (test1, test2): boolean => {
+export const isStrictEqual = (test1, test2): boolean => {
   // SameValue algorithm
   if (test1 === test2) {
     // Steps 6.b-6.e: +0 != -0
@@ -22,3 +22,5 @@ export default (test1, test2): boolean => {
     return test1 !== test1 && test2 !== test2;
   }
 };
+
+export default isStrictEqual;

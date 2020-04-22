@@ -21,7 +21,7 @@ interface PickFunc {
  *      pick(['a', 'd'], {a: 1, b: 2, c: 3, d: 4}); //=> {a: 1, d: 4}
  *      pick(['a', 'e', 'f'], {a: 1, b: 2, c: 3, d: 4}); //=> {a: 1}
  */
-export default curryN(2, <K extends Prop>(props: ReadonlyArray<K> = [], obj = {} as any) => {
+export const pick = curryN(2, <K extends Prop>(props: ReadonlyArray<K> = [], obj = {} as any) => {
   const result = {} as any;
 
   for (let i = 0; i < props.length; i++) {
@@ -34,3 +34,5 @@ export default curryN(2, <K extends Prop>(props: ReadonlyArray<K> = [], obj = {}
 
   return result;
 }) as PickFunc;
+
+export default pick;

@@ -21,7 +21,7 @@ interface SplitEvery {
  * @example
  *      splitEvery(2, [1, 2, 3, 4, 5]); // => [[1, 2], [3, 4], [5]]
  */
-export default curryN(2, <T>(length: number, arr: ArrayLike<T> = []) => {
+export const splitEvery = curryN(2, <T>(length: number, arr: ArrayLike<T> = []) => {
   const result: T[][] = [];
 
   for (let i = 0; i < arr.length; i += length) {
@@ -30,3 +30,5 @@ export default curryN(2, <T>(length: number, arr: ArrayLike<T> = []) => {
 
   return result;
 }) as SplitEvery;
+
+export default splitEvery;

@@ -86,7 +86,7 @@ interface CurryN {
  *      var g = f(3);
  *      g(4); //=> 10
  */
-export default ((arity: number, fn: Function) =>
+export const curryN = ((arity: number, fn: Function) =>
   function curried(...args) {
     if (args.length >= arity) {
       return fn.apply(this, args);
@@ -96,3 +96,5 @@ export default ((arity: number, fn: Function) =>
       return curried.apply(this, args.concat(newArgs));
     };
   }) as CurryN;
+
+export default curryN;

@@ -19,7 +19,7 @@ interface Difference {
  *      difference([1,2,3,4], [7,6,5,4,3]); //=> [1,2]
  *      difference([7,6,5,4,3], [1,2,3,4]); //=> [7,6,5]
  */
-export default curryN(2, <T>(a: ArrayLike<T> = [], b: ArrayLike<T> = []) => {
+export const difference = curryN(2, <T>(a: ArrayLike<T> = [], b: ArrayLike<T> = []) => {
   const result = [];
 
   for (let i = 0; i < a.length; i++) {
@@ -30,3 +30,5 @@ export default curryN(2, <T>(a: ArrayLike<T> = [], b: ArrayLike<T> = []) => {
 
   return result;
 }) as Difference;
+
+export default difference;

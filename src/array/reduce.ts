@@ -28,7 +28,7 @@ interface Reduce {
  *
  *      reduce(plus, 10, numbers); //=> 16
  */
-export default curryN(3, <T, R>(fn: ReduceFunc<T, R>, acc: R, arr: ArrayLike<T> = []) => {
+export const reduce = curryN(3, <T, R>(fn: ReduceFunc<T, R>, acc: R, arr: ArrayLike<T> = []) => {
   const len = arr.length;
 
   for (let i = 0; i < len; i++) {
@@ -37,3 +37,5 @@ export default curryN(3, <T, R>(fn: ReduceFunc<T, R>, acc: R, arr: ArrayLike<T> 
 
   return acc;
 }) as Reduce;
+
+export default reduce;

@@ -24,7 +24,7 @@ interface AllPass {
  *      isQueenOfSpades({rank: 'Q', suit: '♣︎'}); //=> false
  *      isQueenOfSpades({rank: 'Q', suit: '♠︎'}); //=> true
  */
-export default curryN(2, <T>(fns: ArrayLike<Pred<T>>, ...args: T[]) => {
+export const allPass = curryN(2, <T>(fns: ArrayLike<Pred<T>>, ...args: T[]) => {
   for (let i = 0; i < fns.length; i++) {
     if (!fns[i](...args)) {
       return false;
@@ -33,3 +33,5 @@ export default curryN(2, <T>(fns: ArrayLike<Pred<T>>, ...args: T[]) => {
 
   return true;
 }) as AllPass;
+
+export default allPass;

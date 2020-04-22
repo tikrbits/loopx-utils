@@ -23,7 +23,7 @@ import curryN from '../function/curryN';
  *      path(['a', 'b'], {a: {b: 2}}); //=> 2
  *      path(['a', 'b'], {c: {b: 2}}); //=> undefined
  */
-export default curryN(2, <K extends Prop, O extends Record<K, any>>(paths: Paths = [], obj: O = {} as any) => {
+export const path = curryN(2, <K extends Prop, O extends Record<K, any>>(paths: Paths = [], obj: O = {} as any) => {
   let val = obj;
 
   for (let i = 0; i < paths.length; i++) {
@@ -36,3 +36,5 @@ export default curryN(2, <K extends Prop, O extends Record<K, any>>(paths: Paths
 
   return val;
 }) as Path;
+
+export default path;

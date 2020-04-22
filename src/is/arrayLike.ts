@@ -13,7 +13,7 @@ import has from '../object/has';
  * isArrayLike({ 0:'a', 1: 'b', length: 2 }); // => true
  * isArrayLike(null); // => false
  */
-export default (test): test is ArrayLike<any> => {
+export const isArrayLike = (test): test is ArrayLike<any> => {
   switch (true) {
     case isArray(test):
       return true;
@@ -31,3 +31,5 @@ export default (test): test is ArrayLike<any> => {
 
   return false;
 };
+
+export default isArrayLike;

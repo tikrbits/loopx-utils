@@ -21,10 +21,12 @@ interface Nth {
  *      nth(-1, list); //=> 'quux'
  *      nth(-99, list); //=> undefined
  */
-export default curryN(2, <T>(index = 0, arr: ArrayLike<T> = []) => {
+export const nth = curryN(2, <T>(index = 0, arr: ArrayLike<T> = []) => {
   if (index < 0) {
     index += arr.length;
   }
 
   return arr[index];
 }) as Nth;
+
+export default nth;

@@ -27,4 +27,6 @@ interface Update {
  *      update(1)(11)([0, 1, 2]);     //=> [0, 11, 2]
  */
 
-export default curryN(3, <T>(idx: number, x: T, list: ArrayLike<T>) => adjust(always(x), idx, list)) as Update;
+export const update = curryN(3, <T>(idx: number, x: T, list: ArrayLike<T>) => adjust(always(x), idx, list)) as Update;
+
+export default update;

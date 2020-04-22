@@ -24,10 +24,12 @@ interface IndexOf {
  *      indexOf(10, [1,2,3,4]); //=> -1
  */
 
-export default curryN(2, <T>(target: T | string, xs: ArrayLike<T> | string = []) => {
+export const indexOf = curryN(2, <T>(target: T | string, xs: ArrayLike<T> | string = []) => {
   if (isString(xs)) {
     return xs.indexOf(target as string);
   }
 
   return Array.prototype.indexOf.call(xs, target);
 }) as IndexOf;
+
+export default indexOf;

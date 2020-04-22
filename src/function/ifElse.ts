@@ -31,6 +31,8 @@ interface IfElse {
  *      prop({ a: false, c: 2 }); //=> 2
  *      prop({ a: true, b: 1, c: 2 }); //=> 1
  */
-export default curryN(3, (condition, onTrue, onFalse) => (...args) =>
+export const ifElse = curryN(3, (condition, onTrue, onFalse) => (...args) =>
   condition(...args) ? onTrue(...args) : onFalse(...args),
 ) as IfElse;
+
+export default ifElse;

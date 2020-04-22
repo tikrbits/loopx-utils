@@ -22,7 +22,7 @@ interface Debounce {
  * @param {Function} fn The function to debounce.
  * @returns {Function} Returns the new debounced function.
  */
-export default curryN(
+export const debounce = curryN(
   2,
   <F extends Func>(wait: number, fn: F): DebounceFunc<F> => {
     let timeout;
@@ -41,3 +41,5 @@ export default curryN(
     return f;
   },
 ) as Debounce;
+
+export default debounce;

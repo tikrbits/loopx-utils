@@ -7,7 +7,7 @@
  *
  * shuffle([1, 2, 3, 4]); // => [4, 1, 3, 2]
  */
-export default <T>(arr: ArrayLike<T> = []) => {
+export const shuffle = <T>(arr: ArrayLike<T> = []) => {
   const len = arr.length;
   const result: T[] = new Array(len);
 
@@ -23,3 +23,5 @@ export default <T>(arr: ArrayLike<T> = []) => {
 
   return result;
 };
+
+export default shuffle;

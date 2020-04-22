@@ -21,8 +21,10 @@ interface Each {
  *      // logs 7
  *      // logs 8
  */
-export default curryN(2, <T>(fn: ArrVoid<T>, arr: ArrayLike<T> = []) => {
+export const each = curryN(2, <T>(fn: ArrVoid<T>, arr: ArrayLike<T> = []) => {
   for (let i = 0; i < arr.length; i++) {
     fn(arr[i], i, arr);
   }
 }) as Each;
+
+export default each;

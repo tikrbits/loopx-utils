@@ -26,7 +26,9 @@ interface Assoc {
  *
  *      assoc('c', 3, {a: 1, b: 2}); //=> {a: 1, b: 2, c: 3}
  */
-export default curryN(3, <K extends Prop, V, O>(prop: K, val: V, obj: O = {} as any) => ({
+export const assoc = curryN(3, <K extends Prop, V, O>(prop: K, val: V, obj: O = {} as any) => ({
   ...obj,
   [prop]: val,
 })) as Assoc;
+
+export default assoc;

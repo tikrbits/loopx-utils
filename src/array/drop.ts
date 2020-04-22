@@ -26,4 +26,6 @@ interface Drop {
  *      drop(4, ['foo', 'bar', 'baz']); //=> []
  */
 
-export default curryN(2, <T>(n: number, xs: ArrayLike<T>) => slice(Math.max(0, n), Infinity, xs)) as Drop;
+export const drop = curryN(2, <T>(n: number, xs: ArrayLike<T>) => slice(Math.max(0, n), Infinity, xs)) as Drop;
+
+export default drop;

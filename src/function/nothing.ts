@@ -8,4 +8,6 @@ import { Func } from '../typings/types';
  *
  *      nothing(); //=> undefined
  */
-export default (() => undefined) as Func<void>;
+export const nothing = (() => undefined) as Func<void>;
+
+export default nothing;

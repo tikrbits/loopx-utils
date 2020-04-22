@@ -20,7 +20,7 @@ interface MaxBy {
  *      maxBy(o => o.n, objects); // => { 'n': 2 }
  *
  */
-export default curryN(2, <T, R extends Ord>(fn: ArrOrdFunc<T, R>, arr: ArrayLike<T> = []) => {
+export const maxBy = curryN(2, <T, R extends Ord>(fn: ArrOrdFunc<T, R>, arr: ArrayLike<T> = []) => {
   let result;
   let max: Ord = -Infinity;
 
@@ -35,3 +35,5 @@ export default curryN(2, <T, R extends Ord>(fn: ArrOrdFunc<T, R>, arr: ArrayLike
 
   return result;
 }) as MaxBy;
+
+export default maxBy;

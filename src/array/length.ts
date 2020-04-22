@@ -12,4 +12,6 @@ interface Length {
  *      length([]); //=> 0
  *      length([1, 2, 3]); //=> 3
  */
-export default ((arr?: ArrayLike<any>) => arr && arr.length) as Length;
+export const length = ((arr?: ArrayLike<any>) => arr && arr.length) as Length;
+
+export default length;

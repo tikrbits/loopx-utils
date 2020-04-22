@@ -22,7 +22,7 @@ interface Any {
  *      any(lessThan0)([1, 2]); //=> false
  *      any(lessThan2)([1, 2]); //=> true
  */
-export default curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
+export const any = curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
   for (let i = 0; i < arr.length; i++) {
     if (fn(arr[i], i, arr)) {
       return true;
@@ -31,3 +31,5 @@ export default curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
 
   return false;
 }) as Any;
+
+export default any;

@@ -16,7 +16,7 @@ export interface Throttle {
  * @param {number} wait The number of milliseconds to throttle invocations to.
  * @param {Function} fn The function to throttle.
  */
-export default curryN(
+export const throttle = curryN(
   2,
   <F extends Func>(wait: number, fn: F): ThrottleFunc<F> => {
     let lastCalled;
@@ -39,3 +39,5 @@ export default curryN(
     };
   },
 ) as Throttle;
+
+export default throttle;

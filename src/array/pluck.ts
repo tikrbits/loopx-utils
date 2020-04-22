@@ -21,6 +21,8 @@ interface Pluck {
  *      pluck(0)([[1, 2], [3, 4]]);   //=> [1, 3]
  */
 
-export default curryN(2, <P extends Prop, T>(key: string, arr: ArrayLike<Record<P, T>> = []) =>
+export const pluck = curryN(2, <P extends Prop, T>(key: string, arr: ArrayLike<Record<P, T>> = []) =>
   map(prop(key), arr),
 ) as Pluck;
+
+export default pluck;

@@ -28,7 +28,7 @@ interface Adjust {
  *      adjust(add(10), 1, [1, 2, 3]);     //=> [1, 12, 3]
  *      adjust(add(10))(1)([1, 2, 3]);     //=> [1, 12, 3]
  */
-export default curryN(3, <T>(fn: Endo1<T>, idx: number, list: ArrayLike<T> = []) => {
+export const adjust = curryN(3, <T>(fn: Endo1<T>, idx: number, list: ArrayLike<T> = []) => {
   if (idx >= list.length || idx < -list.length) {
     return list;
   }
@@ -40,3 +40,5 @@ export default curryN(3, <T>(fn: Endo1<T>, idx: number, list: ArrayLike<T> = [])
   result[index] = fn(list[index]);
   return result;
 }) as Adjust;
+
+export default adjust;

@@ -25,6 +25,8 @@ interface EqProps {
  *      eqProps('a', o1, o2); //=> false
  *      eqProps('c', o1, o2); //=> true
  */
-export default curryN(3, <K extends Prop>(prop: K, obj1: Record<any, any>, obj2: Record<any, any>) => {
+export const eqProps = curryN(3, <K extends Prop>(prop: K, obj1: Record<any, any>, obj2: Record<any, any>) => {
   return obj1 != null && obj2 != null ? obj1[prop] === obj2[prop] : undefined;
 }) as EqProps;
+
+export default eqProps;

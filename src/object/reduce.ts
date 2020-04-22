@@ -29,7 +29,7 @@ interface ReduceObj {
  *
  *      reduce(plus, 10, obj); //=> 16
  */
-export default curryN(3, <R, O extends Record<any, any>>(fn: ReduceFunc<R, O>, acc: R, obj: O = {} as any) => {
+export const reduce = curryN(3, <R, O extends Record<any, any>>(fn: ReduceFunc<R, O>, acc: R, obj: O = {} as any) => {
   for (const key in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, key)) {
       acc = fn(acc, obj[key], key, obj);
@@ -38,3 +38,5 @@ export default curryN(3, <R, O extends Record<any, any>>(fn: ReduceFunc<R, O>, a
 
   return acc;
 }) as ReduceObj;
+
+export default reduce;

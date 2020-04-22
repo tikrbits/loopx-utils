@@ -20,7 +20,7 @@ interface Join {
  *      spacer(['a', 2, 3.4]);   //=> 'a 2 3.4'
  *      join('|', [1, 2, 3]);    //=> '1|2|3'
  */
-export default curryN(2, <T>(separator = '', arr: ArrayLike<T> = []) => {
+export const join = curryN(2, <T>(separator = '', arr: ArrayLike<T> = []) => {
   let resultArr: T[];
 
   if (isArray(arr)) {
@@ -31,3 +31,5 @@ export default curryN(2, <T>(separator = '', arr: ArrayLike<T> = []) => {
 
   return resultArr.join(separator);
 }) as Join;
+
+export default join;

@@ -22,7 +22,7 @@ interface FilterObj {
  *
  *      filter(isEven, {a: 1, b: 2, c: 3, d: 4}); //=> {b: 2, d: 4}
  */
-export default curryN(2, <O extends Record<any, any>>(fn: ObjPred<keyof O, O[keyof O]>, obj: O = {} as any) => {
+export const filter = curryN(2, <O extends Record<any, any>>(fn: ObjPred<keyof O, O[keyof O]>, obj: O = {} as any) => {
   const keys = objectKeys(obj);
   const result: Partial<O> = {};
 
@@ -36,3 +36,5 @@ export default curryN(2, <O extends Record<any, any>>(fn: ObjPred<keyof O, O[key
 
   return result;
 }) as FilterObj;
+
+export default filter;

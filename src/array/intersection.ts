@@ -18,7 +18,7 @@ interface Intersection {
  *
  *      intersection([1,2,3,4], [7,6,5,4,3]); //=> [4, 3]
  */
-export default curryN(2, <T>(a: ArrayLike<T> = [], b: ArrayLike<T> = []) => {
+export const intersection = curryN(2, <T>(a: ArrayLike<T> = [], b: ArrayLike<T> = []) => {
   const result = [];
 
   for (let i = 0; i < a.length; i++) {
@@ -29,3 +29,5 @@ export default curryN(2, <T>(a: ArrayLike<T> = [], b: ArrayLike<T> = []) => {
 
   return result;
 }) as Intersection;
+
+export default intersection;

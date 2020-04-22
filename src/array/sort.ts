@@ -24,8 +24,10 @@ const defaultComparator = (a: number, b: number) => a - b;
  *      var diff = function(a, b) { return a - b; };
  *      sort(diff, [4,2,7,5]); //=> [2, 4, 5, 7]
  */
-export default curryN(2, <T, R>(comparator = defaultComparator, arr: ArrayLike<T> = []) => {
+export const sort = curryN(2, <T, R>(comparator = defaultComparator, arr: ArrayLike<T> = []) => {
   const newArray = Array.prototype.slice.call(arr);
 
   return newArray.sort(comparator);
 }) as Sort;
+
+export default sort;

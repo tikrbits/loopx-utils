@@ -17,7 +17,7 @@ interface PickBy {
  *
  *      pickBy(x => x > 2, {a: 1, b: 2, c: 3, d: 4}); //=> {c: 3, d: 4}
  */
-export default curryN(2, <O>(fn: ObjPredBy<O>, obj: O = {} as any) => {
+export const pickBy = curryN(2, <O>(fn: ObjPredBy<O>, obj: O = {} as any) => {
   const result: Partial<O> = {};
 
   for (const prop in obj) {
@@ -28,3 +28,5 @@ export default curryN(2, <O>(fn: ObjPredBy<O>, obj: O = {} as any) => {
 
   return result;
 }) as PickBy;
+
+export default pickBy;

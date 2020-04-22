@@ -11,4 +11,5 @@
  *      not(0); //=> true
  *      not(1); //=> false
  */
-export default (val) => !val;
+export const not = (val) => !val;
+export default not;

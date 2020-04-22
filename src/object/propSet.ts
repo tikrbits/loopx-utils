@@ -29,7 +29,7 @@ interface PropSet {
  *
  *      propSet('c', 3, {a: 1, b: 2}); //=> {a: 1, b: 2, c: 3}
  */
-export default curryN(3, <K extends Prop>(prop: K, val, obj = {} as any) => {
+export const propSet = curryN(3, <K extends Prop>(prop: K, val, obj = {} as any) => {
   if (has(prop, obj) && obj[prop] === val) {
     return obj;
   }
@@ -39,3 +39,5 @@ export default curryN(3, <K extends Prop>(prop: K, val, obj = {} as any) => {
     [prop]: val,
   };
 }) as PropSet;
+
+export default propSet;

@@ -17,4 +17,6 @@ import identity from '../identity';
  *     memoize({test: 1}); // from addFlag call
  *     memoize(test); // from cache
  */
-export default memoizeWith(() => new Map(), identity);
+export const strictSingle = memoizeWith(() => new Map(), identity);
+
+export default strictSingle;

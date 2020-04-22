@@ -22,4 +22,6 @@ if (!isComponent) {
  * @param {*} test a reference being tested
  * @returns whether a value is a React component
  */
-export default isComponent;
+export const isReactComponent = isComponent;
+
+export default isReactComponent;

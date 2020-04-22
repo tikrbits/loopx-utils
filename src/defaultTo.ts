@@ -27,7 +27,7 @@ interface DefaultTo {
  *      defaultTo42('Example');  //=> 'Example'
  *      defaultTo42(parseInt('string')); //=> 42
  */
-export default curryN(2, (dflt, x) => {
+export const defaultTo = curryN(2, (dflt, x) => {
   if (x == null || x !== x) {
     // eslint-disable-line no-self-compare
     return dflt;
@@ -35,3 +35,5 @@ export default curryN(2, (dflt, x) => {
 
   return x;
 }) as DefaultTo;
+
+export default defaultTo;

@@ -10,4 +10,6 @@
  * isNil(''); // => false
  * isNil(5); // => false
  */
-export default (test): test is void => test == null;
+export const isNil = (test): test is void => test == null;
+
+export default isNil;

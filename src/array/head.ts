@@ -14,4 +14,6 @@ interface Head {
  *      head(['fi', 'fo', 'fum']); //=> 'fi'
  *      head([]); //=> undefined
  */
-export default (<T>(arr: ArrayLike<T> | string) => arr && arr[0]) as Head;
+export const head = (<T>(arr: ArrayLike<T> | string) => arr && arr[0]) as Head;
+
+export default head;

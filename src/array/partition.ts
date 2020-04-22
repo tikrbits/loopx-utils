@@ -21,7 +21,7 @@ interface Partition {
  *      partition(includes('s'), ['sss', 'ttt', 'foo', 'bars']);
  *      // => [ [ 'sss', 'bars' ],  [ 'ttt', 'foo' ] ]
  */
-export default curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
+export const partition = curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
   const t = [];
   const f = [];
 
@@ -35,3 +35,5 @@ export default curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
 
   return [t, f];
 }) as Partition;
+
+export default partition;

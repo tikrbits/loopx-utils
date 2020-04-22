@@ -16,10 +16,12 @@ interface Template {
  *
  *      template({ fruit: 'banana' }, 'Petya has a %{fruit}') // => Petya has a banana
  */
-export default curryN(2, (replacements = {}, str: string = '') =>
+export const template = curryN(2, (replacements = {}, str: string = '') =>
   str.replace(/%\{.+?\}/g, (match) => {
     const replacementKey = match.replace(/\W/g, '');
 
     return replacements[replacementKey];
   }),
 ) as Template;
+
+export default template;

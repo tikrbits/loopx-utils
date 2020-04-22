@@ -37,6 +37,8 @@ interface Slice {
  *      slice(-3, -1, ['a', 'b', 'c', 'd']);      //=> ['b', 'c']
  */
 
-export default curryN(3, <T>(fromIndex: number, toIndex: number, list: ArrayLike<T> | string = []) =>
+export const slice = curryN(3, <T>(fromIndex: number, toIndex: number, list: ArrayLike<T> | string = []) =>
   isString(list) ? list.slice(fromIndex, toIndex) : Array.prototype.slice.call(list, fromIndex, toIndex),
 ) as Slice;
+
+export default slice;

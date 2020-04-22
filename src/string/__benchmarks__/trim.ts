@@ -4,7 +4,7 @@ import trim from '../trim';
 
 const testStr = '           fawfawfsafgregr      ';
 
-export default {
+export const trim = {
   ramda: () => {
     trimRamda(testStr);
   },
@@ -15,3 +15,5 @@ export default {
     trim(testStr);
   },
 };
+
+export default trim;

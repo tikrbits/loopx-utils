@@ -14,4 +14,6 @@ interface Last {
  *      last(['fi', 'fo', 'fum']); //=> 'fum'
  *      last([]); //=> undefined
  */
-export default (<T>(arr: ArrayLike<T> | string) => arr && arr[arr.length - 1]) as Last;
+export const last = (<T>(arr: ArrayLike<T> | string) => arr && arr[arr.length - 1]) as Last;
+
+export default last;

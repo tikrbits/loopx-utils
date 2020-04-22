@@ -21,7 +21,7 @@ import isObject from './object';
  *
  * isPlainObject(<span></span>); // => false
  */
-export default function isPlainObject(test): test is Record<any, any> {
+export const isPlainObject = function isPlainObject(test): test is Record<any, any> {
   if (!isObject(test)) {
     return false;
   }
@@ -47,3 +47,5 @@ export default function isPlainObject(test): test is Record<any, any> {
 
   return true;
 }
+
+export default isPlainObject;

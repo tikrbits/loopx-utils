@@ -19,4 +19,6 @@ interface Optional {
  *      optIsString({}) // => false
  *      optIsString('str') // => true
  */
-export default curryN(2, <T>(fn: (x: T) => any, x: T) => typeof x === 'undefined' || fn(x)) as Optional;
+export const optional = curryN(2, <T>(fn: (x: T) => any, x: T) => typeof x === 'undefined' || fn(x)) as Optional;
+
+export default optional;

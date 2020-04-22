@@ -11,7 +11,7 @@
  *      cache.has('a'); // true
  *      cache.get('a'); // 5
  */
-export default (obj = Object.create(null)) => {
+export const createCache = (obj = Object.create(null)) => {
   return {
     get(key) {
       return obj[key];
@@ -25,3 +25,5 @@ export default (obj = Object.create(null)) => {
     },
   };
 };
+
+export default createCache;

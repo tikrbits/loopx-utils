@@ -25,7 +25,7 @@
  *
  * range(0); // => []
  */
-export default (a: number, b?: number, step?: number) => {
+export const range = (a: number, b?: number, step?: number) => {
   if (typeof b !== 'number') {
     b = a;
     a = 0;
@@ -46,3 +46,5 @@ export default (a: number, b?: number, step?: number) => {
 
   return result;
 };
+
+export default range;

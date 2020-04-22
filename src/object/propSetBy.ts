@@ -29,7 +29,7 @@ interface PropSetBy {
  *
  *      propSetBy('a', x => x+1, {a: 1}); //=> {a: 2}
  */
-export default curryN(3, <K extends Prop>(prop: K, fn: ObjBase<K, any, any>, obj = {} as any) => {
+export const propSetBy = curryN(3, <K extends Prop>(prop: K, fn: ObjBase<K, any, any>, obj = {} as any) => {
   const res = propApply(prop, fn, obj);
 
   if (has(prop, obj) && obj[prop] === res) {
@@ -41,3 +41,5 @@ export default curryN(3, <K extends Prop>(prop: K, fn: ObjBase<K, any, any>, obj
     [prop]: res,
   };
 }) as PropSetBy;
+
+export default propSetBy;

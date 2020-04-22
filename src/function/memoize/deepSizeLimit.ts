@@ -23,7 +23,7 @@ interface DeepSizeLimit {
  *     memoize({test: 4}); // from addFlag call
  *     memoize({test: 2}); // from addFlag call (memory was cleared)
  */
-export default curryN(2, (maxSize: number, fn: Function) =>
+export const deepSizeLimit = curryN(2, (maxSize: number, fn: Function) =>
   memoizeWith(() => createSizedCache(maxSize), (...args) => JSON.stringify(args), fn),
 ) as DeepSizeLimit;
 
@@ -39,3 +39,5 @@ function createSizedCache(maxSize: number) {
   };
   return cache;
 }
+
+export default deepSizeLimit;

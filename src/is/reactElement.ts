@@ -22,4 +22,6 @@ if (!isElement) {
  * @param {*} test a reference being tested
  * @returns whether a value is a React element
  */
-export default isElement;
+export const isReactElement = isElement;
+
+export default isReactElement;

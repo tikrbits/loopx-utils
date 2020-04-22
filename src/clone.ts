@@ -31,7 +31,7 @@ const cloneRegExp = (pattern: RegExp) =>
  *      var objectsClone = clone(objects);
  *      objects[0] === objectsClone[0]; //=> false
  */
-const clone = (x) => {
+export const clone: Clone = (x) => {
   switch (type(x)) {
     case 'Object':
       // Skip clone react object
@@ -41,14 +41,17 @@ const clone = (x) => {
         return mapObj(clone, x);
       }
     case 'Array':
+      // @ts-ignore
       return mapArr(clone, x);
     case 'Date':
+      // @ts-ignore
       return new Date(x.valueOf());
     case 'RegExp':
+      // @ts-ignore
       return cloneRegExp(x);
   }
 
   return x;
 };
 
-export default clone as Clone;
+export default clone;

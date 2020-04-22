@@ -24,4 +24,5 @@ export interface Merge {
  *
  * merge({ 'name': 'fred', 'age': 10 }, { 'age': 40 }); //=> { 'name': 'fred', 'age': 40 }
  */
-export default curryN(2, (...sources: Record<any, any>[]) => Object.assign({}, ...sources)) as Merge;
+export const merge = curryN(2, (...sources: Record<any, any>[]) => Object.assign({}, ...sources)) as Merge;
+export default merge;

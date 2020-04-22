@@ -16,4 +16,6 @@ interface Tail {
  *      tail(['fi', 'fo', 'fum']); //=> ['fo', 'fum']
  *      tail([]); //=> []
  */
-export default (<T>(arr: ArrayLike<T>) => slice(1, arr.length, arr)) as Tail;
+export const tail = (<T>(arr: ArrayLike<T>) => slice(1, arr.length, arr)) as Tail;
+
+export default tail;

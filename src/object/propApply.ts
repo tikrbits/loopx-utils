@@ -28,4 +28,6 @@ interface PropApply {
  *      propApply('a', x => 'is ' + x, {a: 2}); //=> is 2
  *      propApply('b', x => x > 0, {b: 2}); //=> true
  */
-export default curryN(3, (propName: Prop, fn, obj) => fn(prop(propName, obj), propName, obj)) as PropApply;
+export const propApply = curryN(3, (propName: Prop, fn, obj) => fn(prop(propName, obj), propName, obj)) as PropApply;
+
+export default propApply;

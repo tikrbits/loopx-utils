@@ -21,7 +21,7 @@ interface Reject {
  *
  *      reject(isEven, [1, 2, 3, 4]); //=> [1, 3]
  */
-export default curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
+export const reject = curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
   const result = [];
 
   for (let i = 0; i < arr.length; i++) {
@@ -32,3 +32,5 @@ export default curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
 
   return result;
 }) as Reject;
+
+export default reject;

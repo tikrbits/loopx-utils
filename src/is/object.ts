@@ -8,4 +8,6 @@
  * isObject({ a: 'test' }); // => true
  * isObject(null); // => false
  */
-export default (test): test is Record<any, any> => test !== null && typeof test === 'object';
+export const isObject = (test): test is Record<any, any> => test !== null && typeof test === 'object';
+
+export default isObject;

@@ -23,7 +23,7 @@ interface DropWhile {
  *
  *      dropWhile(lteTwo, [1, 2, 3, 4, 3, 2, 1]); //=> [3, 4, 3, 2, 1]
  */
-export default curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
+export const dropWhile = curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
   let idx = 0;
 
   while (idx < arr.length && fn(arr[idx], idx, arr)) {
@@ -32,3 +32,5 @@ export default curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
 
   return slice(idx, arr.length, arr);
 }) as DropWhile;
+
+export default dropWhile;

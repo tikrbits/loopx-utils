@@ -37,7 +37,7 @@ interface MergeWith {
  *
  * mergeWith((x, y) => x + y, { 'name': 'fred', 'age': 10 }, { 'age': 40 }); //=> { 'name': 'fred', 'age': 50 }
  */
-export default curryN(3, (fn: Func<any, any, any>, ...sources) => {
+export const mergeWith = curryN(3, (fn: Func<any, any, any>, ...sources) => {
   const result: Record<any, any> = assign(sources[0]);
 
   for (let i = 1; i < sources.length; i++) {
@@ -57,3 +57,5 @@ export default curryN(3, (fn: Func<any, any, any>, ...sources) => {
 
   return result;
 }) as MergeWith;
+
+export default mergeWith;

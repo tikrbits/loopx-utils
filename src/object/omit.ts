@@ -20,7 +20,7 @@ interface Omit {
  *
  *      omit(['a', 'd'], {a: 1, b: 2, c: 3, d: 4}); //=> {b: 2, c: 3}
  */
-export default curryN(2, <K extends Prop>(props: ReadonlyArray<K> = [], obj = {}) => {
+export const omit = curryN(2, <K extends Prop>(props: ReadonlyArray<K> = [], obj = {}) => {
   const propsSet = Object.create(null);
 
   for (let i = 0; i < props.length; i++) {
@@ -40,3 +40,5 @@ export default curryN(2, <K extends Prop>(props: ReadonlyArray<K> = [], obj = {}
 
   return result;
 }) as Omit;
+
+export default omit;

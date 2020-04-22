@@ -19,7 +19,7 @@ interface UniqBy {
  *
  *      uniqBy(x => x % 2, [1, 2, 2, 3, 4, 5, 5, 5]) // [1, 2]
  */
-export default curryN(2, <T>(fn: KeyFunc<T>, arr: ArrayLike<T> = []) => {
+export const uniqBy = curryN(2, <T>(fn: KeyFunc<T>, arr: ArrayLike<T> = []) => {
   const result = [];
   const unq = Object.create(null);
 
@@ -34,3 +34,5 @@ export default curryN(2, <T>(fn: KeyFunc<T>, arr: ArrayLike<T> = []) => {
 
   return result;
 }) as UniqBy;
+
+export default uniqBy;

@@ -34,7 +34,7 @@ interface Where {
  *      pred({a: 'foo', b: 'xxx', x: 10, y: 19}); //=> false
  *      pred({a: 'foo', b: 'xxx', x: 11, y: 20}); //=> false
  */
-export default curryN(2, <O>(spec: Partial<Record<keyof O, ObjPredBy<O>>> = {}, obj: O = {} as any) => {
+export const where = curryN(2, <O>(spec: Partial<Record<keyof O, ObjPredBy<O>>> = {}, obj: O = {} as any) => {
   for (const prop in spec) {
     if (has(prop, spec) && !spec[prop](obj[prop], prop, obj)) {
       return false;
@@ -43,3 +43,5 @@ export default curryN(2, <O>(spec: Partial<Record<keyof O, ObjPredBy<O>>> = {}, 
 
   return true;
 }) as Where;
+
+export default where;

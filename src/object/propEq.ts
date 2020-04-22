@@ -27,4 +27,6 @@ interface PropEq {
  *      var hasBrownHair = propEq('hair', 'brown');
  *      filter(hasBrownHair, kids); //=> [fred, rusty]
  */
-export default curryN(3, (propName: Prop, value, obj) => prop(propName, obj) === value) as PropEq;
+export const propEq = curryN(3, (propName: Prop, value, obj) => prop(propName, obj) === value) as PropEq;
+
+export default propEq;

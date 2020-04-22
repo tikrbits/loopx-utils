@@ -15,7 +15,7 @@ import equal from '../../is/equal';
  *     memoize(1,2) // from addFlag call,
  *     memoize(1) // from addFlag call, cache was flashed on previous step
  */
-export default <T extends Function>(fn: T, isEqual: (a, b) => boolean = equal): T => {
+export const one = <T extends Function>(fn: T, isEqual: (a, b) => boolean = equal): T => {
   let lastArgs = [];
   let lastResult;
   let alreadyCalled = false;
@@ -33,3 +33,5 @@ export default <T extends Function>(fn: T, isEqual: (a, b) => boolean = equal): 
     return lastResult;
   }) as any;
 };
+
+export default one;

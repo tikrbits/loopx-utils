@@ -8,4 +8,6 @@
  * trim('  abc  '); // => 'abc'
  *
  */
-export default (str = '') => str.toString().trim() || '';
+export const trim = (str = '') => str.toString().trim() || '';
+
+export default trim;

@@ -25,7 +25,7 @@ interface AnyPass {
  *      isBlackCard({rank: 'Q', suit: '♠'}); //=> true
  *      isBlackCard({rank: 'Q', suit: '♦'}); //=> false
  */
-export default curryN(2, <T>(fns: ArrayLike<Pred<T>>, ...args: T[]) => {
+export const anyPass = curryN(2, <T>(fns: ArrayLike<Pred<T>>, ...args: T[]) => {
   for (let i = 0; i < fns.length; i++) {
     if (fns[i](...args)) {
       return true;
@@ -34,3 +34,5 @@ export default curryN(2, <T>(fns: ArrayLike<Pred<T>>, ...args: T[]) => {
 
   return false;
 }) as AnyPass;
+
+export default anyPass;

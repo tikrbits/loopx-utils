@@ -8,4 +8,6 @@
  * trimLeft('  abc  '); // => 'abc   '
  *
  */
-export default (str = '') => str.replace(/^[\s\uFEFF\xA0]+/g, '');
+export const trimLeft = (str = '') => str.replace(/^[\s\uFEFF\xA0]+/g, '');
+
+export default trimLeft;

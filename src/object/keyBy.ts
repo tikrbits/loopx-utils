@@ -23,7 +23,7 @@ interface KeyBy {
  * keyBy(x => x < 2, { a: 0, b: 1, c: 3});// => { false: 1, true: 3 }
  */
 
-export default curryN(2, <O extends Record<any, any>>(fn: ObjBaseBy<O, string>, obj: O = {} as any) => {
+export const keyBy = curryN(2, <O extends Record<any, any>>(fn: ObjBaseBy<O, string>, obj: O = {} as any) => {
   const result = {};
   const keys = objectKeys(obj);
 
@@ -36,3 +36,5 @@ export default curryN(2, <O extends Record<any, any>>(fn: ObjBaseBy<O, string>, 
 
   return result;
 }) as KeyBy;
+
+export default keyBy;

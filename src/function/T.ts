@@ -8,4 +8,6 @@ import { Func } from '../typings/types';
  *
  *      T(); //=> true
  */
-export default (() => true) as Func<true>;
+export const T = (() => true) as Func<true>;
+
+export default T;

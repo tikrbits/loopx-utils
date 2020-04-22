@@ -23,10 +23,12 @@ interface ApplyOrReturn {
  *      applyOrReturn([1,2,3], (...args) => args) // => [1,2,3]
  *      applyOrReturn([1,2,3], 'test') // => 'test'
  */
-export default curryN(2, <T>(args: T[], test: ApplyFunc<T>) => {
+export const applyOrReturn = curryN(2, <T>(args: T[], test: ApplyFunc<T>) => {
   if (typeof test === 'function') {
     return test(...args);
   }
 
   return test;
 }) as ApplyOrReturn;
+
+export default applyOrReturn;

@@ -35,7 +35,7 @@ interface ReduceWhile {
  *      reduceWhile(acc => acc.length < 3, (acc, x) => acc + x, '1', ['2', '3', '4', '5']) // '123'
  *
  */
-export default curryN(4, <T, R>(pred: ReducePred<T, R>, fn: ReduceFunc<T, R>, acc: R, arr: ArrayLike<T> = []) => {
+export const reduceWhile = curryN(4, <T, R>(pred: ReducePred<T, R>, fn: ReduceFunc<T, R>, acc: R, arr: ArrayLike<T> = []) => {
   // eslint-disable-line max-params
   if (isNil(arr)) {
     return acc;
@@ -53,3 +53,5 @@ export default curryN(4, <T, R>(pred: ReducePred<T, R>, fn: ReduceFunc<T, R>, ac
 
   return acc;
 }) as ReduceWhile;
+
+export default reduceWhile;

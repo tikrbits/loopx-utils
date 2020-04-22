@@ -26,4 +26,6 @@ interface Take {
  *      take(4, ['foo', 'bar', 'baz']); //=> ['foo', 'bar', 'baz']
  *      take(3, 'ramda');               //=> 'ram'
  */
-export default curryN(2, <T>(n: number, arr: ArrayLike<T> = []) => slice(0, n, arr)) as Take;
+export const take = curryN(2, <T>(n: number, arr: ArrayLike<T> = []) => slice(0, n, arr)) as Take;
+
+export default take;

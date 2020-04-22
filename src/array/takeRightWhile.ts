@@ -28,7 +28,7 @@ interface TakeRightWhile {
  *
  *      takeRightWhile(isNotOne, [1, 2, 3, 4]); //=> [2, 3, 4]
  */
-export default curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
+export const takeRightWhile = curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
   let i = arr.length - 1;
 
   while (i >= 0 && fn(arr[i], i, arr)) {
@@ -37,3 +37,5 @@ export default curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
 
   return slice(i + 1, arr.length, arr);
 }) as TakeRightWhile;
+
+export default takeRightWhile;

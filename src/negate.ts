@@ -7,4 +7,5 @@
  *
  *      negate(42); //=> -42
  */
-export default (n: number) => -n;
+export const negate = (n: number) => -n;
+export default negate;

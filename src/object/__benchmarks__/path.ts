@@ -7,7 +7,7 @@ const testObj = {
   a: [{ b: 'check' }, 2, 3],
 };
 
-export default {
+export const path = {
   ramda: () => {
     pathRamda(pth, testObj);
   },
@@ -18,3 +18,5 @@ export default {
     return path(pth, testObj);
   },
 };
+
+export default path;

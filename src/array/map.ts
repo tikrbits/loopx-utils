@@ -21,7 +21,7 @@ interface Map {
  *
  *      map(double, [1, 2, 3]); //=> [2, 4, 6]
  */
-export default curryN(2, <T, R>(fn: MapFunc<T, R>, arr: ArrayLike<T> = []) => {
+export const map = curryN(2, <T, R>(fn: MapFunc<T, R>, arr: ArrayLike<T> = []) => {
   const len = arr.length;
   const result = new Array(len);
 
@@ -31,3 +31,5 @@ export default curryN(2, <T, R>(fn: MapFunc<T, R>, arr: ArrayLike<T> = []) => {
 
   return result;
 }) as Map;
+
+export default map;

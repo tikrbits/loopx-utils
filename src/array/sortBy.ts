@@ -19,7 +19,7 @@ interface SortBy {
  *      var pairs = [[-1, 1], [-2, 2], [-3, 3]];
  *      sortByFirstItem(pairs); //=> [[-3, 3], [-2, 2], [-1, 1]]
  */
-export default curryN(2, <T, R extends Ord>(fn: OrdFunc<T, R>, arr: ArrayLike<T> = []) => {
+export const sortBy = curryN(2, <T, R extends Ord>(fn: OrdFunc<T, R>, arr: ArrayLike<T> = []) => {
   const newArray = Array.prototype.slice.call(arr);
 
   return newArray.sort((a, b) => {
@@ -35,3 +35,5 @@ export default curryN(2, <T, R extends Ord>(fn: OrdFunc<T, R>, arr: ArrayLike<T>
     return 0;
   });
 }) as SortBy;
+
+export default sortBy;

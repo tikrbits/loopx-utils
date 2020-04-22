@@ -27,7 +27,7 @@ interface TryCatch {
  *          }
  *      )( someIncompleteData ) // DEFAULT_VALUE (error is logged somewhere)
  */
-export default curryN(2, <T>(tryer: Func<T>, catcher: Func<T>) => {
+export const tryCatch = curryN(2, <T>(tryer: Func<T>, catcher: Func<T>) => {
   return (...args) => {
     try {
       return tryer.apply(this, args);
@@ -37,3 +37,5 @@ export default curryN(2, <T>(tryer: Func<T>, catcher: Func<T>) => {
     }
   };
 }) as TryCatch;
+
+export default tryCatch;

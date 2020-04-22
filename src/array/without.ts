@@ -18,4 +18,6 @@ interface Without {
  *
  *      without([1, 2], [1, 2, 1, 3, 4]); //=> [3, 4]
  */
-export default curryN(2, <T>(xs: ArrayLike<T>, list: ArrayLike<T>) => difference(list, xs)) as Without;
+export const without = curryN(2, <T>(xs: ArrayLike<T>, list: ArrayLike<T>) => difference(list, xs)) as Without;
+
+export default without;

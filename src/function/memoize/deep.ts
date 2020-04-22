@@ -16,4 +16,6 @@ import createCacheFrom from './createCache';
  *     test.id = 123;
  *     memoize(test); // from addFlag call
  */
-export default memoizeWith(createCacheFrom, (...args) => JSON.stringify(args));
+export const deep = memoizeWith(createCacheFrom, (...args) => JSON.stringify(args));
+
+export default deep;

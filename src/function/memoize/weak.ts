@@ -15,4 +15,6 @@ import identity from '../identity';
  *     memoize({test: 1}); // from addFlag call;
  *     memoize(test); // from cache
  */
-export default memoizeWith(() => new WeakMap(), identity);
+export const weak = memoizeWith(() => new WeakMap(), identity);
+
+export default weak;

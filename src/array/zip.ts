@@ -18,7 +18,7 @@ interface Zip {
  *
  *      zip([1, 2, 3], ['a', 'b', 'c']); //=> [[1, 'a'], [2, 'b'], [3, 'c']]
  */
-export default curryN(2, <U, V>(a: ArrayLike<U> = [], b: ArrayLike<V> = []) => {
+export const zip = curryN(2, <U, V>(a: ArrayLike<U> = [], b: ArrayLike<V> = []) => {
   const len = Math.min(a.length, b.length);
   const result: Array<[U, V]> = new Array(len);
 
@@ -28,3 +28,5 @@ export default curryN(2, <U, V>(a: ArrayLike<U> = [], b: ArrayLike<V> = []) => {
 
   return result;
 }) as Zip;
+
+export default zip;

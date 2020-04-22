@@ -7,4 +7,6 @@
  *
  *      toLower('xyz'); //=> 'XYZ'
  */
-export default (str = '') => str.toUpperCase();
+export const toUpper = (str = '') => str.toUpperCase();
+
+export default toUpper;

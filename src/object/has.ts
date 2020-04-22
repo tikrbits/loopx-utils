@@ -20,7 +20,9 @@ interface Has {
  *      hasName({name: 'bob'});     //=> true
  *      hasName({});                //=> false
  */
-export default curryN(
+export const has = curryN(
   2,
   <K extends Prop>(prop: K, obj) => obj != null && Object.prototype.hasOwnProperty.call(obj, prop),
 ) as Has;
+
+export default has;

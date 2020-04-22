@@ -18,7 +18,7 @@ interface Repeat {
  *      repeat(5, 'h'); //=> 'hhhhh'
  *
  */
-export default curryN(2, (n = 0, value: string) => {
+export const repeat = curryN(2, (n = 0, value: string) => {
   if (!isString(value)) {
     return '';
   }
@@ -31,3 +31,5 @@ export default curryN(2, (n = 0, value: string) => {
 
   return result;
 }) as Repeat;
+
+export default repeat;

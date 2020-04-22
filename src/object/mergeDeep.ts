@@ -15,7 +15,7 @@ import assign from '../assign';
  *
  * mergeDeep({ 'name': 'fred', 'info': { 'age': 10, 'sex': 'm' } }, { 'info': { 'age': 40 }); //=> { 'name': 'fred', 'info': { 'age': 40, 'sex': 'm' } }
  */
-const mergeDeep = (...sources: Record<any, any>[]) => {
+export const mergeDeep = curryN(2, (...sources: Record<any, any>[]) => {
   const result = assign(sources[0] || {});
 
   for (let i = 1; i < sources.length; i++) {
@@ -41,6 +41,6 @@ const mergeDeep = (...sources: Record<any, any>[]) => {
   }
 
   return result;
-};
+});
 
-export default curryN(2, mergeDeep) as Merge;
+export default mergeDeep;

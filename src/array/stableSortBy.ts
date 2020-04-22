@@ -30,7 +30,7 @@ interface StableSortBy {
  *          { name: 'Sam', age: 21 }
  *      ]
  */
-export default curryN(2, <T, R extends Ord>(fn: OrdFunc<T, R>, arr: ArrayLike<T> = []) => {
+export const stableSortBy = curryN(2, <T, R extends Ord>(fn: OrdFunc<T, R>, arr: ArrayLike<T> = []) => {
   const len = arr.length;
   const indexes = new Array(len);
 
@@ -61,3 +61,5 @@ export default curryN(2, <T, R extends Ord>(fn: OrdFunc<T, R>, arr: ArrayLike<T>
 
   return result;
 }) as StableSortBy;
+
+export default stableSortBy;

@@ -10,4 +10,6 @@ import objectKeys from './keys';
  * size({ 'a': 1, 'b': 2 }); // => 2
  *
  */
-export default (obj) => objectKeys(obj).length;
+export const size = (obj) => objectKeys(obj).length;
+
+export default size;

@@ -25,4 +25,6 @@ interface PropFunc {
  *      prop('x', {x: 100}); //=> 100
  *      prop('x', {}); //=> undefined
  */
-export default curryN(2, <K extends Prop>(prop: K, obj) => (obj != null ? obj[prop] : undefined)) as PropFunc;
+export const prop = curryN(2, <K extends Prop>(prop: K, obj) => (obj != null ? obj[prop] : undefined)) as PropFunc;
+
+export default prop;

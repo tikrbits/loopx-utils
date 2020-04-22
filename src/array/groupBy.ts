@@ -21,7 +21,7 @@ interface GroupBy {
  *
  * groupBy([isPositive, isZero, isNegative], [0, -3, 2, 'str', 4, -1]);// => [[2,4], [0], [-3, -1], ['str']]
  */
-export default curryN(2, <T>(fns: ArrPred<T>[], arr: ArrayLike<T> = []) => {
+export const groupBy = curryN(2, <T>(fns: ArrPred<T>[], arr: ArrayLike<T> = []) => {
   const n = fns.length;
   const result = map(() => [], Array(n));
   const rest = [];
@@ -46,3 +46,5 @@ export default curryN(2, <T>(fns: ArrPred<T>[], arr: ArrayLike<T> = []) => {
 
   return result;
 }) as GroupBy;
+
+export default groupBy;

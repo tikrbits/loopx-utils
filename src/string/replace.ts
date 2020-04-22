@@ -24,6 +24,8 @@ interface Replace {
  *      // Use the "g" (global) flag to replace all occurrences:
  *      replace(/foo/g, 'bar', 'foo foo foo'); //=> 'bar bar bar'
  */
-export default curryN(3, (pattern: Pattern = '', replacement = '', str = '') =>
+export const replace = curryN(3, (pattern: Pattern = '', replacement = '', str = '') =>
   str.replace(pattern, replacement),
 ) as Replace;
+
+export default replace;

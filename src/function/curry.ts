@@ -83,4 +83,6 @@ interface Curry {
  *      var g = f(3);
  *      g(4); //=> 10
  */
-export default ((fn: Func) => curryN(fn.length, fn)) as Curry;
+export const curry = ((fn: Func) => curryN(fn.length, fn)) as Curry;
+
+export default curry;

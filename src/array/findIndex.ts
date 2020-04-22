@@ -21,7 +21,7 @@ interface FindIndex {
  *      findIndex(x => x.a === 2)(xs); //=> 1
  *      findIndex(x => x.a === 4)(xs); //=> -1
  */
-export default curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
+export const findIndex = curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
   for (let i = 0; i < arr.length; i++) {
     if (fn(arr[i], i, arr)) {
       return i;
@@ -30,3 +30,5 @@ export default curryN(2, <T>(fn: ArrPred<T>, arr: ArrayLike<T> = []) => {
 
   return -1;
 }) as FindIndex;
+
+export default findIndex;

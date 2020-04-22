@@ -23,9 +23,11 @@ interface Remove {
  *      remove(2, 3, [1,2,3,4,5,6,7,8]); //=> [1,2,6,7,8]
  */
 
-export default curryN(3, <T>(start: number, count: number, list: ArrayLike<T>) => {
+export const remove = curryN(3, <T>(start: number, count: number, list: ArrayLike<T>) => {
   const result = Array.prototype.slice.call(list, 0);
 
   result.splice(start, count);
   return result;
 }) as Remove;
+
+export default remove;

@@ -18,4 +18,6 @@ interface Keys {
  *
  *      keys({a: 1, b: 2, c: 3}); //=> ['a', 'b', 'c']
  */
-export default ((obj) => (isObject(obj) ? Object.keys(obj) : [])) as Keys;
+export const keys = ((obj) => (isObject(obj) ? Object.keys(obj) : [])) as Keys;
+
+export default keys;

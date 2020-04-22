@@ -19,4 +19,5 @@ interface IsTrue {
  *      isTrue([true]) // => false
  *      isTrue('false') // => false
  */
-export default ((val) => val === true || val === 'true') as IsTrue;
+export const isTrue = ((val) => val === true || val === 'true') as IsTrue;
+export default isTrue;

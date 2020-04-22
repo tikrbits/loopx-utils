@@ -19,7 +19,7 @@ interface MapObject {
  *
  *      map(double, {x: 1, y: 2, z: 3}); //=> {x: 2, y: 4, z: 6}
  */
-export default curryN(2, <O extends Record<any, any>, R>(fn: ObjBaseBy<O, R>, obj: O = {} as any) => {
+export const map = curryN(2, <O extends Record<any, any>, R>(fn: ObjBaseBy<O, R>, obj: O = {} as any) => {
   const result: Record<keyof O, R> = {} as any;
 
   for (const key in obj) {
@@ -30,3 +30,5 @@ export default curryN(2, <O extends Record<any, any>, R>(fn: ObjBaseBy<O, R>, ob
 
   return result;
 }) as MapObject;
+
+export default map;

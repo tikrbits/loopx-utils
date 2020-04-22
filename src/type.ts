@@ -27,7 +27,7 @@ type Result =
  *      type([]); //=> "Array"
  *      type(/[A-z]/); //=> "RegExp"
  */
-export default (x): Result => {
+export const type = (x): Result => {
   if (x === null) {
     return 'Null';
   }
@@ -38,3 +38,5 @@ export default (x): Result => {
 
   return Object.prototype.toString.call(x).slice(8, -1);
 };
+
+export default type;

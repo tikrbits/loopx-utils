@@ -17,7 +17,7 @@ interface ToPairs {
  *
  *      toPairs({a: 1, b: 2, c: 3}); //=> [['a', 1], ['b', 2], ['c', 3]]
  */
-export default (<K extends Prop, V>(obj: Record<K, V> = {} as any) => {
+export const toPairs = (<K extends Prop, V>(obj: Record<K, V> = {} as any) => {
   const keys = objKeys(obj);
   const len = keys.length;
   const result = new Array(len);
@@ -28,3 +28,5 @@ export default (<K extends Prop, V>(obj: Record<K, V> = {} as any) => {
 
   return result;
 }) as ToPairs;
+
+export default toPairs;

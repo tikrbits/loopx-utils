@@ -32,10 +32,12 @@ interface When {
  *      truncate('12345');         //=> '12345'
  *      truncate('0123456789ABC'); //=> '0123456789…'
  */
-export default curryN(3, (pred, onTrue, x) => {
+export const when = curryN(3, (pred, onTrue, x) => {
   if (pred(x)) {
     return onTrue(x);
   }
 
   return x;
 }) as When;
+
+export default when;

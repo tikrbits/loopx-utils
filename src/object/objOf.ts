@@ -17,4 +17,6 @@ interface ObjOf {
  *
  *      objOf('key', 5) // => { key: 5 }
  */
-export default curryN(2, <K extends Prop, V>(key: K, value: V) => ({ [key]: value })) as ObjOf;
+export const objOf = curryN(2, <K extends Prop, V>(key: K, value: V) => ({ [key]: value })) as ObjOf;
+
+export default objOf;

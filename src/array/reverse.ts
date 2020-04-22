@@ -25,10 +25,12 @@ interface Reverse {
  *      reverse('');         //=> ''
  */
 
-export default (<T>(list: ArrayLike<T> | string) =>
+export const reverse = (<T>(list: ArrayLike<T> | string) =>
   isString(list)
     ? list
       .split('')
       .reverse()
       .join('')
     : Array.prototype.slice.call(list, 0).reverse()) as Reverse;
+
+export default reverse;

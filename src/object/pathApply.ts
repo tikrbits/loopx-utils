@@ -35,6 +35,8 @@ interface PathApply {
  *      pathApply(['a', 'b'], x => 'is ' + x, {a: {b: 2}}); //=> is 2
  *      pathApply(['a', 'b'], x => x > 0, {a: {b: 2}}); //=> true
  */
-export default curryN(3, <R>(paths: Paths = [], fn: ObjBase<Paths, any, any>, obj = {}) =>
+export const pathApply = curryN(3, <R>(paths: Paths = [], fn: ObjBase<Paths, any, any>, obj = {}) =>
   fn(path(paths, obj), paths, obj),
 ) as PathApply;
+
+export default pathApply;

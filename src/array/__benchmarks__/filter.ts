@@ -8,7 +8,7 @@ import range from '../range';
 const fn = (x) => x % 2 !== 0;
 const array = range(101);
 
-export default {
+export const filter = {
   ramda: () => {
     filterRamda(fn, array);
   },
@@ -27,3 +27,5 @@ export default {
     filter(fn, array);
   },
 };
+
+export default filter;

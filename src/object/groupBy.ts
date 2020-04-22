@@ -22,7 +22,7 @@ interface GroupBy {
  *
  * groupBy(x => x, { a: 1, b: 1, c: 3});// => { '1': [1, 1], '3': [3] }
  */
-export default curryN(2, <O extends Record<any, any>>(fn: ObjBaseBy<O, string>, obj: O = {} as any) => {
+export const groupBy = curryN(2, <O extends Record<any, any>>(fn: ObjBaseBy<O, string>, obj: O = {} as any) => {
   const result = {};
   const keys = objectKeys(obj);
 
@@ -39,3 +39,5 @@ export default curryN(2, <O extends Record<any, any>>(fn: ObjBaseBy<O, string>, 
 
   return result;
 }) as GroupBy;
+
+export default groupBy;

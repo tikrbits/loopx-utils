@@ -40,7 +40,7 @@ interface PathSetBy {
  *
  *      pathSetBy(['a', 'b'], x => x+1, {a: { b:1 }}) // => { a: { b: 2 } }
  */
-export default curryN(3, (paths: Paths = [], fn: ObjBase<Paths, any, any>, obj = {}) => {
+export const pathSetBy = curryN(3, (paths: Paths = [], fn: ObjBase<Paths, any, any>, obj = {}) => {
   const n = paths.length - 1;
   const result = assign(obj);
   const key = paths[n];
@@ -69,3 +69,5 @@ export default curryN(3, (paths: Paths = [], fn: ObjBase<Paths, any, any>, obj =
 
   return result;
 }) as PathSetBy;
+
+export default pathSetBy;

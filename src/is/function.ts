@@ -10,4 +10,6 @@ import { Func } from '../typings/types';
  * isFunction(() => {}); // => true
  * isFunction(null); // => false
  */
-export default (test): test is Func => typeof test === 'function';
+export const isFunction = (test): test is Func => typeof test === 'function';
+
+export default isFunction;

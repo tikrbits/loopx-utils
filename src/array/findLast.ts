@@ -22,10 +22,12 @@ interface FindLast {
  *      findLast(propEq('a', 1))(xs); //=> {a: 1, b: 1}
  *      findLast(propEq('a', 4))(xs); //=> undefined
  */
-export default curryN(2, <T>(fn: ArrPred<T>, list: ArrayLike<T>) => {
+export const findLast = curryN(2, <T>(fn: ArrPred<T>, list: ArrayLike<T>) => {
   for (let i = list.length - 1; i >= 0; i--) {
     if (fn(list[i], i, list)) {
       return list[i];
     }
   }
 }) as FindLast;
+
+export default findLast;

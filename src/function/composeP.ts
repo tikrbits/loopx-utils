@@ -142,7 +142,7 @@ function arity4(d, c, b, a) {
  *      var f = composeP(x => res(-x), (x, y) => res(Math.pow(x, y)));
  *      f(3, 4).then(console.log); // -(3^4)
  */
-function composeP(...chain: ((...args) => Promise<any>)[]) {
+export function composeP(...chain: ((...args) => Promise<any>)[]) {
   switch (chain.length) {
     case 0:
       throw new Error('composeP requires at least one argument');
@@ -160,6 +160,6 @@ function composeP(...chain: ((...args) => Promise<any>)[]) {
         composeP(...chain.slice(4)),
       );
   }
-}
+};
 
-export default composeP as ComposeP;
+export default composeP;

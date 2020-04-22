@@ -24,10 +24,12 @@ export interface Assign {
  * assign({a:1}, {b:2}) // => {a:1, b:2}
  * assign([1,2,3], [4,5]) // => [4,5,3]
  */
-export default ((...sources) => {
+export const assign =  ((...sources) => {
   if (isArray(sources[0])) {
     return Object.assign([], ...sources);
   }
 
   return Object.assign({}, ...sources);
 }) as Assign;
+
+export default assign;

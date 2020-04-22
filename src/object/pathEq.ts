@@ -27,4 +27,6 @@ interface PathEq {
  *      var isFamous = pathEq(['address', 'zipCode'], 90210);
  *      filter(isFamous, users); //=> [ user1 ]
  */
-export default curryN(3, (paths: Paths = [], value, obj = {}) => path(paths, obj) === value) as PathEq;
+export const pathEq = curryN(3, (paths: Paths = [], value, obj = {}) => path(paths, obj) === value) as PathEq;
+
+export default pathEq;

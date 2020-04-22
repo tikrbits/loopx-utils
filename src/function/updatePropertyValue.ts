@@ -30,7 +30,7 @@ interface UpdatePropertyValue {
  *      newFn.name //=> 'newFn'
  *      fn.name //=> 'newFn'
  */
-export default curryN(2, <T, R>(propertyName: string, propertyValue: T, obj: R) => {
+export const updatePropertyValue = curryN(2, <T, R>(propertyName: string, propertyValue: T, obj: R) => {
   const descriptor = Object.getOwnPropertyDescriptor(obj, propertyName);
 
   descriptor.value = propertyValue;
@@ -38,3 +38,5 @@ export default curryN(2, <T, R>(propertyName: string, propertyValue: T, obj: R) 
 
   return obj;
 }) as UpdatePropertyValue;
+
+export default updatePropertyValue;

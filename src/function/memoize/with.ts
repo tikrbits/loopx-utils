@@ -40,7 +40,7 @@ interface MemoizeWith {
  *      const sum = add(1,4); // from original add call
  *      const sum = add(1,3); // from cache
  */
-export default curryN(3, (getCache: CacheFunc, hasher: Hasher, fn: Function) => {
+export const memoizeWith = curryN(3, (getCache: CacheFunc, hasher: Hasher, fn: Function) => {
   const cache = getCache();
 
   return (...args) => {
@@ -57,3 +57,5 @@ export default curryN(3, (getCache: CacheFunc, hasher: Hasher, fn: Function) => 
     return fnCallResult;
   };
 }) as MemoizeWith;
+
+export default memoizeWith;

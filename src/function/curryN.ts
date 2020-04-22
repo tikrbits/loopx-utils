@@ -10,6 +10,7 @@ import {
   CurriedTypeGuard5,
   CurriedTypeGuard6,
 } from '../typings/types';
+import arity from './arity';
 
 interface CurryN {
   <T1, TResult extends T1>(n: 1, fn: (a: T1) => a is TResult): (a: T1) => a is T1;
@@ -74,7 +75,7 @@ interface CurryN {
  *   - `g(1, 2)(3)`
  *   - `g(1, 2, 3)`
  *
- * @param {Number} arity The arity for the returned function.
+ * @param {Number} length The arity for the returned function.
  * @param {Function} fn The function to curry.
  * @return {Function} A new, curried function.
  * @example
@@ -86,15 +87,17 @@ interface CurryN {
  *      var g = f(3);
  *      g(4); //=> 10
  */
-export const curryN = ((arity: number, fn: Function) =>
+export const curryN = ((length: number, fn: Function) => {
   function curried(...args) {
-    if (args.length >= arity) {
+    if (args.length >= length) {
       return fn.apply(this, args);
     }
 
-    return function(...newArgs) {
+    return arity(length - args.length, function(...newArgs) {
       return curried.apply(this, args.concat(newArgs));
-    };
-  }) as CurryN;
+    })
+  }
+  return arity(length, curried);
+}) as CurryN;
 
 export default curryN;

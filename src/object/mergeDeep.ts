@@ -1,7 +1,6 @@
 import curryN from '../function/curryN';
 import isPlainObject from '../is/plainObject';
 import objectKeys from './keys';
-import { Merge } from './merge';
 import assign from '../assign';
 
 /**
@@ -15,7 +14,7 @@ import assign from '../assign';
  *
  * mergeDeep({ 'name': 'fred', 'info': { 'age': 10, 'sex': 'm' } }, { 'info': { 'age': 40 }); //=> { 'name': 'fred', 'info': { 'age': 40, 'sex': 'm' } }
  */
-export const mergeDeep = curryN(2, (...sources: Record<any, any>[]) => {
+export const mergeDeep = curryN(2, (...sources: any[]) => {
   const result = assign(sources[0] || {});
 
   for (let i = 1; i < sources.length; i++) {

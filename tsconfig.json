@@ -2,7 +2,7 @@
   "compilerOptions": {
     "declaration": true,
     "sourceMap": true,
-    "module": "CommonJS",
+    "module": "ES2015",
     "moduleResolution": "node",
     "outDir": "ts_temp",
     "lib": [

@@ -18,6 +18,6 @@ module.exports = {
   ],
   plugins: [
     '@babel/plugin-proposal-object-rest-spread',
-    'babel-plugin-transform-es2015-modules-simple-commonjs',
+    '@babel/plugin-transform-modules-commonjs',
   ],
 };

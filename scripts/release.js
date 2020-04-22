@@ -87,8 +87,8 @@ const release = async () => {
     await buildWithSpinner();
     await copyDeclarationFilesWithSpinner();
     await copyRelationalFilesWithSpinner();
-    await publishWithSpinner(npmTag);
-    await cleanBuildPath();
+    // await publishWithSpinner(npmTag);
+    // await cleanBuildPath();
 
     console.log(chalk.blue('Package was published!'));
   } catch (e) {

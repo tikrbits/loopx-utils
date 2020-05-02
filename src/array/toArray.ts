@@ -16,10 +16,25 @@ interface ToArray {
  *      toArray([1,2,3]) // => [1,2,3]
  *      toArray(5) // => [5]
  *      toArray('test') // => ['test']
+ *      toArray(['test']) // => ['test']
+ *      toArray(null) // => []
+ *      toArray(undefined) // => []
  */
 export const toArray = ((val) => {
+  if (val == null) {
+    return [];
+  }
+
   if (isArray(val)) {
     return val;
+  }
+
+  if (typeof val === 'string') {
+    return [val];
+  }
+
+  if (typeof val[Symbol.iterator] === 'function') {
+    return [...val];
   }
 
   if (isArrayLike(val)) {

@@ -2,7 +2,7 @@
 
 > Fast, small and purely functional utility library
 
-`Tio Utils` is forked from `Tinkoff Utils`
+`Tio Utils` is forked from [Tinkoff Utils](https://github.com/TinkoffCreditSystems/utils.js)
 
 ## Install
 ```

@@ -1,7 +1,7 @@
 {
   "name": "@tiopkg/utils",
   "version": "2.2.0",
-  "author": "Tinkoff team",
+  "author": "Yuan Tao <towyuan@outlook.com>",
   "scripts": {
     "release": "node scripts/release.js",
     "benchmark": "ts-node --skip-project benchmark.ts",

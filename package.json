@@ -1,6 +1,6 @@
 {
   "name": "@tiopkg/utils",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "author": "Yuan Tao <towyuan@outlook.com>",
   "scripts": {
     "release": "node scripts/release.js",

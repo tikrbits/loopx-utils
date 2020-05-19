@@ -168,8 +168,8 @@ When migrating from lodash to Utils, keep in mind that –
 | _.is* | /is/* a small part |
 | _.assign | Object.assign |
 | _.at | /array/map + /object/path |
-| _.defaults | /object/merge |
-| _.defaultsDeep | /object/mergeDeep |
+| _.defaults | /object/defaults |
+| _.defaultsDeep | /object/defaultsDeep |
 | _.entries | /object/toPairs |
 | _.forOwn | /object/each |
 | _.get | /object/path, /object/pathOr `get(obj, 'a.b[0].c', 'dflt') => pathOr(['a', 'b', 0, 'c'], 'dflt', obj)` |

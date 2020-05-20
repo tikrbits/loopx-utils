@@ -29,7 +29,7 @@ export interface Defaults {
  * // => { 'user': 'barney', 'age': 36 }
  */
 export const defaults = curryN(2, (...sources: Record<any, any>[]) => {
-  const result = assign(sources[0] || {});
+  const result = sources[0] || {};
 
   for (let i = 1; i < sources.length; i++) {
     const src = sources[i];

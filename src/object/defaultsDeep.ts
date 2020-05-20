@@ -14,7 +14,7 @@ import assign from '../assign';
  * // => { 'a': { 'b': 2, 'c': 3 } }
  */
 export const defaultsDeep = curryN(2, (...sources: any[]) => {
-  const result = assign(sources[0] || {});
+  const result = sources[0] || {};
 
   for (let i = 1; i < sources.length; i++) {
     const src = sources[i];

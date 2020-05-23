@@ -3,7 +3,7 @@ interface IsTrue {
 
   <T extends boolean>(val: T): T;
 
-  (val): false;
+  (val: any): false;
 }
 
 /**
@@ -19,5 +19,5 @@ interface IsTrue {
  *      isTrue([true]) // => false
  *      isTrue('false') // => false
  */
-export const isTrue = ((val) => val === true || val === 'true') as IsTrue;
+export const isTrue = ((val: any) => val === true || val === 'true') as IsTrue;
 export default isTrue;

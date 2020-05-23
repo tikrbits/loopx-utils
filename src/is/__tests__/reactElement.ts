@@ -13,7 +13,7 @@ describe('utils/is/reactElement', () => {
   });
 
   it('test', () => {
-    mockReactIs = require.requireActual('react-is');
+    mockReactIs = jest.requireActual('react-is');
     const isReactElement = require('../reactElement').default;
 
     expect(isReactElement('test')).toBe(false);

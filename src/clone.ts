@@ -31,13 +31,14 @@ const cloneRegExp = (pattern: RegExp) =>
  *      var objectsClone = clone(objects);
  *      objects[0] === objectsClone[0]; //=> false
  */
-export const clone: Clone = (x) => {
+export const clone: Clone = <T>(x: T): T => {
   switch (type(x)) {
     case 'Object':
       // Skip clone react object
       if (isReactComponent(x) || isReactElement(x)) {
         break;
       } else {
+        // @ts-ignore
         return mapObj(clone, x);
       }
     case 'Array':

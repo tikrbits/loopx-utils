@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
-import map from '@tiopkg/utils/array/map';
-import range from '@tiopkg/utils/array/range';
-import drop from '@tiopkg/utils/array/drop';
-import filter from '@tiopkg/utils/array/filter';
-import sum from '@tiopkg/utils/array/sum';
+import map from '@artlab/utils/array/map';
+import range from '@artlab/utils/array/range';
+import drop from '@artlab/utils/array/drop';
+import filter from '@artlab/utils/array/filter';
+import sum from '@artlab/utils/array/sum';
 
 const arr = range(0, 99);
 

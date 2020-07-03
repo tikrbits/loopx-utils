@@ -1,9 +1,9 @@
-# Tio Utils 
+# Artlab Utils 
 [![Build](https://gitr.net/artlab/utils/badges/master/pipeline.svg)](https://gitr.net/artlab/utils/commits/master) [![Coverage](https://gitr.net/artlab/utils/badges/master/coverage.svg)](https://gitr.net/artlab/utils)
 
 > Fast, small and purely functional utility library
 
-`Tio Utils` is forked from [Tinkoff Utils](https://github.com/TinkoffCreditSystems/utils.js)
+`Artlab Utils` is forked from [Tinkoff Utils](https://github.com/TinkoffCreditSystems/utils.js)
 
 ## Install
 ```

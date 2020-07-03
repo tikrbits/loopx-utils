@@ -1,4 +1,4 @@
-# Tio Utils [![Build](https://travis-ci.org/artlab/utils.svg?branch=master)](https://travis-ci.org/artlab/utils) [![Coverage Status](https://coveralls.io/repos/github/artlab/utils/badge.svg?branch=master&t=CdowK8)](https://coveralls.io/github/artlab/utils?branch=master)
+# Tio Utils [![Build](https://gitr.net/artlab/utils/badges/master/pipeline.svg)](https://gitr.net/artlab/utils/commits/master) 
 
 > Fast, small and purely functional utility library
 

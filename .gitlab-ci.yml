@@ -16,3 +16,4 @@ before_script:
 test:
   script:
   - npm run test
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/

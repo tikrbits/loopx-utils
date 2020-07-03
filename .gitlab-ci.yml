@@ -17,3 +17,15 @@ test:
   script:
   - npm run test
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
+
+pages:
+  stage: deploy
+  script:
+    - npm run docs:gl
+    - mv docs/ public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+

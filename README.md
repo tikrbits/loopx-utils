@@ -1,5 +1,5 @@
 # Tio Utils 
-[![Build](https://gitr.net/artlab/utils/badges/master/pipeline.svg)](https://gitr.net/artlab/utils/commits/master) 
+[![Build](https://gitr.net/artlab/utils/badges/master/pipeline.svg)](https://gitr.net/artlab/utils/commits/master) [![Coverage](https://gitr.net/artlab/utils/badges/master/coverage.svg)](https://gitr.net/artlab/utils)
 
 > Fast, small and purely functional utility library
 

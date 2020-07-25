@@ -1,6 +1,6 @@
 {
   "name": "@tib/utils",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "author": "Yuan Tao <towyuan@outlook.com>",
   "scripts": {
     "release": "node scripts/release.js",

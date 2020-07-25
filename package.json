@@ -6,7 +6,8 @@
     "release": "node scripts/release.js",
     "benchmark": "ts-node --skip-project benchmark.ts",
     "prebenchmark": "npm install --no-save ts-node lodash ramda lazy.js underscore",
-    "docs": "node ./generate/docs/index.js",
+    "docs:gh": "node ./generate/docs/gh.js",
+    "docs:gl": "node ./generate/docs/gl.js",
     "test": "jest --coverage",
     "test:ci": "npm run test -- --maxWorkers=4 && cat ./coverage/lcov.info | coveralls"
   },

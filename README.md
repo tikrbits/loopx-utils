@@ -1,37 +1,38 @@
-# Tio Utils [![Build](https://travis-ci.org/tib/utils.svg?branch=master)](https://travis-ci.org/tib/utils) [![Coverage Status](https://coveralls.io/repos/github/tib/utils/badge.svg?branch=master&t=CdowK8)](https://coveralls.io/github/tib/utils?branch=master)
+# Artlab Utils 
+[![Build](https://gitr.net/artlab/utils/badges/master/pipeline.svg)](https://gitr.net/artlab/utils/commits/master) [![Coverage](https://gitr.net/artlab/utils/badges/master/coverage.svg)](https://gitr.net/artlab/utils)
 
 > Fast, small and purely functional utility library
 
-`Tio Utils` is forked from [Tinkoff Utils](https://github.com/TinkoffCreditSystems/utils.js)
+`Artlab Utils` is forked from [Tinkoff Utils](https://github.com/TinkoffCreditSystems/utils.js)
 
 ## Install
 ```
-$ npm install @tib/utils
+$ npm install @artlab/utils
 ```
 
 ## Features
 - [Fast](#benchmarks)
 - [Small](#bundle-size)
-- [Fully tested](https://coveralls.io/github/tib/utils)
+- [Fully tested](https://coveralls.io/github/artlab/utils)
 - [Documented](https://tinkoffcreditsystems.github.io/utils)
 - Purely functional
 - Modern codebase
 
 ## Structure of the library
-* [`/object`](https://gitr.net/tib/utils/tree/master/src/object) – for objects
-* [`/string`](https://gitr.net/tib/utils/tree/master/src/string) – for strings
-* [`/promise`](https://gitr.net/tib/utils/tree/master/src/promise) – for promises
-* [`/array`](https://gitr.net/tib/utils/tree/master/src/array) – for arrays or array-like objects
-* [`/function`](https://gitr.net/tib/utils/tree/master/src/function) – for functions – composition, currying and so on, also a set of simple functions (noop, T, F)
-* [`/is`](https://gitr.net/tib/utils/tree/master/src/is) – set of type checking methods
-* [`/`](https://gitr.net/tib/utils/tree/master/src) – root contains utilities which don't satisfy any of the above categories or are universal
+* [`/object`](https://gitr.net/artlab/utils/tree/master/src/object) – for objects
+* [`/string`](https://gitr.net/artlab/utils/tree/master/src/string) – for strings
+* [`/promise`](https://gitr.net/artlab/utils/tree/master/src/promise) – for promises
+* [`/array`](https://gitr.net/artlab/utils/tree/master/src/array) – for arrays or array-like objects
+* [`/function`](https://gitr.net/artlab/utils/tree/master/src/function) – for functions – composition, currying and so on, also a set of simple functions (noop, T, F)
+* [`/is`](https://gitr.net/artlab/utils/tree/master/src/is) – set of type checking methods
+* [`/`](https://gitr.net/artlab/utils/tree/master/src) – root contains utilities which don't satisfy any of the above categories or are universal
 
 ## Usage
 ```js
-import pathOr from '@tib/utils/object/pathOr';
-import compose from '@tib/utils/function/compose';
-import toLower from '@tib/utils/string/toLower';
-import map from '@tib/utils/array/map'
+import pathOr from '@artlab/utils/object/pathOr';
+import compose from '@artlab/utils/function/compose';
+import toLower from '@artlab/utils/string/toLower';
+import map from '@artlab/utils/array/map'
 
 const toLowerName = compose(
     toLower,
@@ -74,6 +75,6 @@ $ npm run benchmark
 | import ... from 'lodash/...' | 21.8 kb |
 | import R from 'ramda' | 41.3 kb |
 | import ... from 'ramda/src/...' | 10 kb |
-| import ... from '@tib/utils/...' | 2.32 kb |
+| import ... from '@artlab/utils/...' | 2.32 kb |
 
-For detailed comparison with specific libraries see [COMPARE.md](https://gitr.net/tib/utils/tree/master/COMPARE.md)
+For detailed comparison with specific libraries see [COMPARE.md](https://gitr.net/artlab/utils/tree/master/COMPARE.md)

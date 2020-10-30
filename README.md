@@ -1,38 +1,37 @@
-# Tib Utils
-[![Build](https://gitr.net/tibjs/utils/badges/master/pipeline.svg)](https://gitr.net/tibjs/utils/commits/master) [![Coverage](https://gitr.net/tibjs/utils/badges/master/coverage.svg)](https://gitr.net/tibjs/utils)
+# Loopx Utils
 
 > Fast, small and purely functional utility library
 
-`Tib Utils` is forked from [Tinkoff Utils](https://github.com/TinkoffCreditSystems/utils.js)
+`Loopx Utils` is forked from [Tinkoff Utils](https://github.com/TinkoffCreditSystems/utils.js)
 
 ## Install
 ```
-$ npm install @tib/utils
+$ npm install @loopx/utils
 ```
 
 ## Features
 - [Fast](#benchmarks)
 - [Small](#bundle-size)
-- [Fully tested](https://coveralls.io/github/tib/utils)
+- [Fully tested](https://coveralls.io/github/loopx/utils)
 - [Documented](https://tinkoffcreditsystems.github.io/utils)
 - Purely functional
 - Modern codebase
 
 ## Structure of the library
-* [`/object`](https://github.com/tibjs/utils/tree/master/src/object) – for objects
-* [`/string`](https://github.com/tibjs/utils/tree/master/src/string) – for strings
-* [`/promise`](https://github.com/tibjs/utils/tree/master/src/promise) – for promises
-* [`/array`](https://github.com/tibjs/utils/tree/master/src/array) – for arrays or array-like objects
-* [`/function`](https://github.com/tibjs/utils/tree/master/src/function) – for functions – composition, currying and so on, also a set of simple functions (noop, T, F)
-* [`/is`](https://github.com/tibjs/utils/tree/master/src/is) – set of type checking methods
-* [`/`](https://github.com/tibjs/utils/tree/master/src) – root contains utilities which don't satisfy any of the above categories or are universal
+* [`/object`](https://github.com/tikrbits/loopx-utils/tree/master/src/object) – for objects
+* [`/string`](https://github.com/tikrbits/loopx-utils/tree/master/src/string) – for strings
+* [`/promise`](https://github.com/tikrbits/loopx-utils/tree/master/src/promise) – for promises
+* [`/array`](https://github.com/tikrbits/loopx-utils/tree/master/src/array) – for arrays or array-like objects
+* [`/function`](https://github.com/tikrbits/loopx-utils/tree/master/src/function) – for functions – composition, currying and so on, also a set of simple functions (noop, T, F)
+* [`/is`](https://github.com/tikrbits/loopx-utils/tree/master/src/is) – set of type checking methods
+* [`/`](https://github.com/tikrbits/loopx-utils/tree/master/src) – root contains utilities which don't satisfy any of the above categories or are universal
 
 ## Usage
 ```js
-import pathOr from '@tib/utils/object/pathOr';
-import compose from '@tib/utils/function/compose';
-import toLower from '@tib/utils/string/toLower';
-import map from '@tib/utils/array/map'
+import pathOr from '@loopx/utils/object/pathOr';
+import compose from '@loopx/utils/function/compose';
+import toLower from '@loopx/utils/string/toLower';
+import map from '@loopx/utils/array/map'
 
 const toLowerName = compose(
     toLower,
@@ -75,6 +74,6 @@ $ npm run benchmark
 | import ... from 'lodash/...' | 21.8 kb |
 | import R from 'ramda' | 41.3 kb |
 | import ... from 'ramda/src/...' | 10 kb |
-| import ... from '@tib/utils/...' | 2.32 kb |
+| import ... from '@loopx/utils/...' | 2.32 kb |
 
-For detailed comparison with specific libraries see [COMPARE.md](https://github.com/tibjs/utils/tree/master/COMPARE.md)
+For detailed comparison with specific libraries see [COMPARE.md](https://github.com/tikrbits/loopx-utils/tree/master/COMPARE.md)

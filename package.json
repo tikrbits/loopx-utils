@@ -1,6 +1,6 @@
 {
   "name": "@loopx/utils",
-  "version": "2.4.4",
+  "version": "2.5.0",
   "author": "Yuan Tao <towyuan@outlook.com>",
   "scripts": {
     "release": "node scripts/release.js",

@@ -19,6 +19,7 @@
     "utils",
     "ramda",
     "lodash",
+    "underscore",
     "curry",
     "performance"
   ],
